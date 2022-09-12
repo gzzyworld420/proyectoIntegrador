@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+    <%- include('./partials/header') %>
+
+    <main>
+        <section class="center main-content">
+            <h1>Register</h1>
+
+            <br>
+
+            <form action="/">
+            <input type="email" class="email-username" placeholder="Email...">
+            <br>
+
+            <input type="text" class="register-username" placeholder="username..">
+            <br>
+
+            <input type="password" class="register-password" placeholder="password..">
+            <br>
+
+            <input type="month" class="register-birth" placeholder="enter date of birth..">
+            <br>
+
+           
+            <input type="number" class="register-dni" placeholder="enter DNI">
+
+            <br>
+
+            <br>
+            <section>
+                <button>Enter</button>
+            </section>
+
+            <h4>Choose a profile picture:</h4>
+            <input type="file" class="register-photo" placeholder="insert self image..">
+        </form>
+
+        </section>
+
+    </main>
+
+    <%- include('./partials/footer') %>
+
+</body>
+
+</html>

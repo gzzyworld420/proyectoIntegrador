@@ -1,31 +1,172 @@
-const db = [
-     {
-        usuario: '',
-        posteo:''
-    },
+const db = {
+    usersList : [
+        {
+            userName: "Mike Thurston",
+            email: "",
+            contrasenia: "",
+            foto: "",
+            fecha: "",
+            dni: "",
 
-     {
-        usuario: '',
-        posteo:''
-    },
+        },
+        {
+            userName: "Bruno Wilson",
+            email: "",
+            contrasenia: "",
+            foto: "",
+            fecha: "",
+            dni: "",
 
-     {
-        usuario: '',
-        posteo:''
-    },
+        },
+        {
+            userName: "Martin Hernandez",
+            email: "",
+            contrasenia: "",
+            foto: "",
+            fecha: "",
+            dni: "",
 
-     {
-        usuario: '',
-        posteo:''
-    },
-]
+        },
+        {
+            userName:"Lucia Perez",
+            email: "",
+            contrasenia: "",
+            foto: "",
+            fecha: "",
+            dni: "",
+
+        },
+        {
+            userName:"Gaston Sanchez",
+            email: "",
+            contrasenia: "",
+            foto: "",
+            fecha: "",
+            dni: "",
+
+        },
+    ],
+    postsList : [
+        {
+            userId: "",
+            imageName: "",
+            descripcion: "",
+            foreignKey: "",
+
+
+        },
+        {
+            userId: "",
+            imageName: "",
+            descripcion: "",
+            foreignKey: "",
+
+
+        },
+        {
+            userId: "",
+            imageName: "",
+            descripcion: "",
+            foreignKey: "",
+
+
+        },
+        {
+            userId: "",
+            imageName: "",
+            descripcion: "",
+            foreignKey: "",
+
+
+        },
+        {
+            userId: "",
+            imageName: "",
+            descripcion: "",
+            foreignKey: "",
+
+
+        },
+        {
+            userId: "",
+            imageName: "",
+            descripcion: "",
+            foreignKey: "",
+
+
+        },
+        {
+            userId: "",
+            imageName: "",
+            descripcion: "",
+            foreignKey: "",
+
+
+        },
+        {
+            userId: "",
+            imageName: "",
+            descripcion: "",
+            foreignKey: "",
+
+
+        },
+        {
+            userId: "",
+            imageName: "",
+            descripcion: "",
+            foreignKey: "",
+
+
+        },
+        {
+            userId: "",
+            imageName: "",
+            descripcion: "",
+            foreignKey: "",
+
+
+        },
+        
+    ],
+    commentsLists : [
+        {
+            postId: "",
+            userId: "",
+            foreignKey: "",
+
+        },
+        {
+            postId: "",
+            userId: "",
+            foreignKey: "",
+
+        },
+        {
+            postId: "",
+            userId: "",
+            foreignKey: "",
+
+        },
+        {
+            postId: "",
+            userId: "",
+            foreignKey: "",
+
+        },
+        {
+            postId: "",
+            userId: "",
+            foreignKey: "",
+
+        },
+    ]
+
+
+}
+
+
     
 
 
-
-
-
-
-
-
-module.exports = db; 
+module.exports = db;
