@@ -10,17 +10,32 @@
     <main>
         <section class="center main-content">
             <h1>Edit Profile</h1>
-            <form action="/">
-                <h4>Insert new username:</h4>
-                <input type="text" class="change-username" placeholder="new username..">
-                <h4>Insert username:</h4>
-                <input type="text" class="change-username" placeholder="old username..">
-                <h4>Confirm password:</h4>
-                <input type="password" class="" placeholder="old password..">
-                <h4>Change Profile Picture:</h4>
-                <input type="file" class="new-picture" >
-                <br><br>
-                <button>Confirm</button>
+            <form action="/users/myprofile" >
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" value="<%= users.usersList[0].email %> ">
+                </div>
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" value="<%= users.usersList[0].userName %> ">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" value="<%= users.usersList[0].contrasenia %> ">
+                </div>
+                <div>
+                    <label for="profile-picture">Profile Picture</label>
+                    <input type="text" name="profile-picture" value="<%= users.usersList[0].profilePicture %> " >
+                </div>
+                <div>
+                    <label for="date">Date of Birth</label>
+                    <input type="date" name="date" value="<%= users.usersList[0].fecha %> ">
+                </div>
+                <div>
+                    <label for="dni">DNI</label>
+                    <input type="text" name="number-dni" value="<%= users.usersList[0].dni %> ">
+                </div>
+                <button type="submit">Confirm</button>
             </form>
         </section> 
     </main>

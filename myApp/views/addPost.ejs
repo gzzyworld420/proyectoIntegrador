@@ -10,13 +10,21 @@
     <main>
         <section class="center main-content">
             <h1>Add Posts!</h1>
-            <h4>select photo:</h4>
-
-            <form action="/">
-                <input type="file" class="add-post" placeholder="select file...">
-                <br>
-                <br>
-                <button class="post-button">Post</button>
+            <form action="/users/login" >
+                <div>
+                    <label for="user">User ID</label>
+                    <input type="name" name="user" placeholder="user ID">
+                </div>
+                <div>
+                    <label for="image">Select Image</label>
+                    <input type="text" name="image" placeholder="Image">
+                </div>
+                <div>
+                    <label for="post">Post Description</label>
+                    <input type="text" name="post" placeholder="Post Description">
+                </div>
+                
+                <button type="submit">Confirm</button>
             </form>
 
         </section>

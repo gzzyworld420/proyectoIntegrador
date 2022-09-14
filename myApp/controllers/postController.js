@@ -1,12 +1,12 @@
+let db = require('../data/data');
 const postController = {
     addPost: (req, res) => {
         res.render('addPost');
     },
     postDetails: (req, res) => {
-        res.render('postDetails');
-    },
-    searchResults: (req, res) => {
-        res.render('searchResults');
+
+        //let post = db.bucarporId(idPost);
+        res.render('postDetails', {posts : db.postsList, users : db.usersList});
     }
 }
 

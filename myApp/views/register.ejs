@@ -9,35 +9,34 @@
     <main>
         <section class="center main-content">
             <h1>Register</h1>
-
-            <br>
-
-            <form action="/">
-            <input type="email" class="email-username" placeholder="Email...">
-            <br>
-
-            <input type="text" class="register-username" placeholder="username..">
-            <br>
-
-            <input type="password" class="register-password" placeholder="password..">
-            <br>
-
-            <input type="month" class="register-birth" placeholder="enter date of birth..">
-            <br>
-
+            <form action="/users/login" >
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="Insert your email">
+                </div>
+                <div>
+                    <label for="username">Email</label>
+                    <input type="text" name="username" placeholder="Insert your username">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" placeholder="Insert your password">
+                </div>
+                <div>
+                    <label for="profile-picture">Profile Picture</label>
+                    <input type="text" name="profile-picture" placeholder="Choose your profile picture">
+                </div>
+                <div>
+                    <label for="date">Date of Birth</label>
+                    <input type="date" name="date" placeholder="Insert your date of birth">
+                </div>
+                <div>
+                    <label for="dni">DNI</label>
+                    <input type="number" name="number-dni" placeholder="Insert your ID">
+                </div>
+                <button type="submit">Confirm</button>
+            </form>
            
-            <input type="number" class="register-dni" placeholder="enter DNI">
-
-            <br>
-
-            <br>
-            <section>
-                <button>Enter</button>
-            </section>
-
-            <h4>Choose a profile picture:</h4>
-            <input type="file" class="register-photo" placeholder="insert self image..">
-        </form>
 
         </section>
 

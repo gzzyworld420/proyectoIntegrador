@@ -139,6 +139,12 @@ main {
 }
 .post-comentarios h4 {
     margin: 0 0 10px 0;
+    color: black;
+    
+}
+
+.post-description {
+    font-weight: lighter;
 }
 
 /* Footer  */

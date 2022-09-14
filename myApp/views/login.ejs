@@ -9,17 +9,17 @@
     <main>
         <section class="center main-content">
         <h1>Login</h1>
-        <p>Insert account details:</p>
-         
-        <form action="/">
-          <input type="text" class="login-username" placeholder="username..">
-          <br>
-          <input type="text" class="login-password" placeholder="password..">
-          <br>
-          <button>
-            Enter
-          </button>
-        </form>
+        <form action="/users/myprofile" >
+          <div>
+              <label for="email">Email</label>
+              <input type="email" name="email" placeholder="Insert your email">
+          </div>
+          <div>
+              <label for="password">Password</label>
+              <input type="password" name="password" placeholder="Insert your password">
+          </div>
+          <button type="submit">Confirm</button>
+      </form>
         </section>
        
     </main>

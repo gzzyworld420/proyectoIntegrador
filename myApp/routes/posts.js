@@ -3,8 +3,11 @@ const router = express.Router();
 const postController = require('../controllers/postController');
 
 router.get('/addposts', postController.addPost);
-router.get('/postdetails', postController.postDetails);
-router.get('/searchResults', postController.searchResults);
 
+
+
+
+
+router.get('/postdetails/:id', postController.postDetails);
 
 module.exports = router;
