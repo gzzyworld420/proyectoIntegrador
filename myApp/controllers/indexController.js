@@ -1,4 +1,7 @@
+// require
 const db = require('../data/data');
+
+// methods
 const indexController = {
     index: (req, res) => {
         
@@ -13,5 +16,8 @@ const indexController = {
 
 
 }
+
+
+// export
 
 module.exports = indexController;

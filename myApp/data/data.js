@@ -1,3 +1,4 @@
+// declaramos una variable la cual va a contener un objeto literal el cual dentro contendra un array el cual contendra objetos literales con sus respectivos atributos
 const db = {
     usersList: [
         {
@@ -238,5 +239,5 @@ const db = {
 
 
 
-
+// exports
 module.exports = db;

@@ -1,4 +1,8 @@
-let db = require('../data/data');
+// require
+const db = require('../data/data');
+
+// methods
+
 const postController = {
     addPost: (req, res) => {
         res.render('addPost');
@@ -10,4 +14,7 @@ const postController = {
     }
 }
 
-module.exports = postController;
+
+// exports
+module.exports = postController; 
+
