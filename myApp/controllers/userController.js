@@ -1,5 +1,5 @@
 
-// require
+// siguiendo el modelo MVC, una vez ya creado el modelo, el modelo de base de datos se comunica con el controlador
 const db = require("../data/data");
 
 // methods
@@ -9,8 +9,9 @@ const userController = {
         res.render('userDetails');
     }, 
     myProfile: (req, res) => {
-        console.log(db.usersList[0]);
-        res.render('myProfile', {users : db, posts : db});
+        // console.log(db);
+        // para desde el controlador enviarle info a las vistas, se usa el metodo render y se le pasa como parametro un objeto con la info que se quiere enviar
+        res.render('myProfile', {user: db.usersList[0], posts: db.postsList});
     }, 
     login: (req, res) => {
         res.render('login');
@@ -19,7 +20,8 @@ const userController = {
         res.render('register');
     }, 
     editProfile: (req, res) => {
-        res.render('editProfile', {users : db});
+        // para desde el controlador enviarle info a las vistas, se usa el metodo render y se le pasa como parametro un objeto con la info que se quiere enviar
+        res.render('editProfile', {user: db});
     }, 
     
     

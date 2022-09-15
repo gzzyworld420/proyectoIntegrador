@@ -73,7 +73,7 @@ const db = {
             description: "New Jordans out now!",
             userId: 1,
             fotoPerfil: "https://www.endava.com/-/media/EndavaDigital/Endava/Images/ManagementPages/AndyAllan.ashx",
-            imageName: "https://nicolediverdice.files.wordpress.com/2015/04/vegan-black.png?w=400&h=333",
+            imagen: "https://nicolediverdice.files.wordpress.com/2015/04/vegan-black.png?w=400&h=333",
             comment1:"I love these",
             comment2:"great choice",
             
@@ -84,7 +84,7 @@ const db = {
             description: "New Jordans out now!",
             userId: 1,
             fotoPerfil: "https://www.endava.com/-/media/EndavaDigital/Endava/Images/ManagementPages/AndyAllan.ashx",
-            imageName: "https://image.goat.com/750/attachments/product_template_pictures/images/072/682/079/original/895937_00.png.png",
+            imagen: "https://image.goat.com/750/attachments/product_template_pictures/images/072/682/079/original/895937_00.png.png",
             comment1: "I have had a bad experience with them",
             comment2: "They look very new!"
 
@@ -96,7 +96,7 @@ const db = {
             description: "Message me if you are interested!!",
             userId: 3,
             fotoPerfil: "https://www.endava.com/-/media/EndavaDigital/Endava/Images/ManagementPages/John_Cotterell_433x440.ashx",
-            imageName: "https://cdn.shopify.com/s/files/1/0259/7021/2909/products/GX5822_6_FOOTWEAR_Photography_FrontLateralTopView_transparent_1360x.png?v=1649392029",
+            imagen: "https://cdn.shopify.com/s/files/1/0259/7021/2909/products/GX5822_6_FOOTWEAR_Photography_FrontLateralTopView_transparent_1360x.png?v=1649392029",
             comment1: "Where can I buy these",
             comment2:"Are they available in red?",
 
@@ -108,7 +108,7 @@ const db = {
             description: "Too expensive",
             userId: 2,
             fotoPerfil: "https://www.endava.com/-/media/EndavaDigital/Endava/Images/ManagementPages/Andrew_Rowland.ashx",
-            imageName: "https://i.blogs.es/0fad11/zapatillas-animal-print-converse/original.png",
+            imagen: "https://i.blogs.es/0fad11/zapatillas-animal-print-converse/original.png",
             comment1: "Very nice colors and material",
             comment2:"Great quality"
 
@@ -120,7 +120,7 @@ const db = {
             description: "Bad quality",
             userId: 3,
             fotoPerfil: "https://www.endava.com/-/media/EndavaDigital/Endava/Images/ManagementPages/John_Cotterell_433x440.ashx",
-            imageName: "https://images.footlocker.com/is/image/EBFL2/38056002_a2?wid=1600&hei=1600&fmt=png-alp",
+            imagen: "https://images.footlocker.com/is/image/EBFL2/38056002_a2?wid=1600&hei=1600&fmt=png-alp",
             comment1: "I share a similar opinion",
             comment2: "I like the laces!"
 
@@ -131,7 +131,7 @@ const db = {
             description: "Very Confortable",
             userId: 1,
             fotoPerfil: "https://www.endava.com/-/media/EndavaDigital/Endava/Images/ManagementPages/AndyAllan.ashx",
-            imageName: "https://static.nike.com/a/images/t_default/0da2a6a4-98b2-483c-b144-867cd5d22964/air-max-270-g-golf-shoe-GVHWZK.png",
+            imagen: "https://static.nike.com/a/images/t_default/0da2a6a4-98b2-483c-b144-867cd5d22964/air-max-270-g-golf-shoe-GVHWZK.png",
             comment1: "They look great!",
             comment2:"Do they age badly?"
 
@@ -142,7 +142,7 @@ const db = {
             description: "Nike air max 270",
             userId: 5,
             fotoPerfil: "https://www.endava.com/-/media/EndavaDigital/Endava/Images/ManagementPages/David_Churchill_2.ashx",
-            imageName: "https://www.pgatoursuperstore.com/on/demandware.static/-/Sites-master-catalog-pgatss/default/dw73515365/Golf-Footwear/Golf-Footwear/Mens-Sprt-Cas-Ftwr/Nike/2000000014821/CK6483-102-PHSRH000-2000.png",
+            imagen: "https://www.pgatoursuperstore.com/on/demandware.static/-/Sites-master-catalog-pgatss/default/dw73515365/Golf-Footwear/Golf-Footwear/Mens-Sprt-Cas-Ftwr/Nike/2000000014821/CK6483-102-PHSRH000-2000.png",
             comment1: "Love them!",
             comment2:"Very nice design",
 
@@ -154,7 +154,7 @@ const db = {
             description: "My working boots",
             userId: 5,
             fotoPerfil: "https://www.endava.com/-/media/EndavaDigital/Endava/Images/ManagementPages/David_Churchill_2.ashx",
-            imageName: "https://static.sneakerjagers.com/news/nl/2021/11/Timberland-6-Premium-Boot-2.png",
+            imagen: "https://static.sneakerjagers.com/news/nl/2021/11/Timberland-6-Premium-Boot-2.png",
             comment1: "Awesome!",
             comment2: "They must be very confortable",
 
@@ -165,7 +165,7 @@ const db = {
             description: "My sons favorite choice of shoes",
             userId: 2,
             fotoPerfil: "https://www.endava.com/-/media/EndavaDigital/Endava/Images/ManagementPages/Andrew_Rowland.ashx",
-            imageName: "https://cdn.shopify.com/s/files/1/2358/2817/products/dunk-low-nba-75th-anniversary-chicago-bulls-831495.png?v=1638813895",
+            imagen: "https://cdn.shopify.com/s/files/1/2358/2817/products/dunk-low-nba-75th-anniversary-chicago-bulls-831495.png?v=1638813895",
             comment1: "Cool!",
             comment2:"They are definitely making a comback"
 
@@ -177,7 +177,7 @@ const db = {
             description: "Bought them for 20% off",
             userId: 4,
             fotoPerfil: "https://www.endava.com/-/media/EndavaDigital/Endava/Images/ManagementPages/Sulina-Connal.ashx",
-            imageName: "https://www.koolaburra.com/on/demandware.static/-/Sites-KOOLABURRA-US-master/default/dwaf9cdba5/images/transparent/1015874-CHE_2.png",
+            imagen: "https://www.koolaburra.com/on/demandware.static/-/Sites-KOOLABURRA-US-master/default/dwaf9cdba5/images/transparent/1015874-CHE_2.png",
             comment1: "Very nice!",
             comment2: "Would look even nicer if they came in orange"
 

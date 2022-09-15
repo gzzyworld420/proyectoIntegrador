@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('./partials/head') %>
+<!--partials head-->
+<%- include('partials/head') %>
 
 <body>
-
+    <!--partials header-->
     <%- include('./partials/header') %>
 
     <main>
         <div class="user-detail container">
             <section class="top main-content">
-                <img class="profile" src="<%= users.usersList[0].profilePicture%> " alt="">
+                <img class="profile" src="<%= user.profilePicture%> " alt="">
                 <div class="info-usuario">
-                    <p><%= users.usersList[0].userName%> </p>
+                    <p><%= user.username%> </p>
                     <a class="follow" href="/users/editProfile"><i class="fa-solid fa-user-gear"></i></a>
                     <ul class="meta">
-                        <li> <%= users.usersList[0].posts%> posts</li>
-                        <li><%= users.usersList[0].followers%> followers</li>
-                        <li><%= users.usersList[0].following%> following</li>
+                        <li> <%= user.posts%> posts</li>
+                        <li><%= user.followers%> followers</li>
+                        <li><%= user.following%> following</li>
                     </ul>
                 </div>
             </section>
+
             <section class="bottom">
-                <% for( let i = 0; i < posts.postsList.length; i++ ) { %>
-               
-                    <article class="post">
-                        <a href="/posts/postDetails">
-                            <img src="<%= posts.postsList[i].imageName %> " alt="">
-                            <p><%= posts.postsList[i].description %> </p>
-                        </a>
-                    </article>
-                    <% } %>
-               
+                <% for( let i = 0; i < posts.length; i++ ) { %>
+                <article class="post">
+                    <a href="/posts/postDetails">
+                        <img src="<%= posts[i].imagen %> " alt="">
+                        <p><%= posts[i].description %> Texto del Post</p>
+                    </a>
+                </article>
+                <% } %>
             </section>
         </div>
     </main>
 
-    <%- include('./partials/footer') %>
+    <!--partials footer-->
+    <%- include('partials/footer') %>
 
 </body>
 
