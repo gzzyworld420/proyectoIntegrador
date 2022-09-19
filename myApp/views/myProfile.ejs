@@ -24,11 +24,12 @@
             </section>
 
             <section class="bottom">
+
                 <% for( let i = 0; i < posts.length; i++ ) { %>
                 <article class="post">
                     <a href="/posts/postDetails">
                         <img src="<%= posts[i].imagen %> " alt="">
-                        <p><%= posts[i].description %> Texto del Post</p>
+                        <p><%= posts[i].description %></p>
                     </a>
                 </article>
                 <% } %>

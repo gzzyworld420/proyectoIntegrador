@@ -14,27 +14,27 @@
           <form action="/users/myprofile" >
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email" value="<%= users.usersList[0].email %> ">
+                <input type="email" name="email" value="<%= users[indice].email%> ">
             </div>
             <div>
                 <label for="username">Username</label>
-                <input type="text" name="username" value="<%= users.usersList[0].userName %> ">
+                <input type="text" name="username" value="<%= users[indice].userName %> ">
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" name="password" value="<%= users.usersList[0].contrasenia %> ">
+                <input type="password" name="password" value="<%= users[indice].contrasenia %> ">
             </div>
             <div>
                 <label for="profile-picture">Profile Picture</label>
-                <input type="text" name="profile-picture" value="<%= users.usersList[0].profilePicture %> " >
+                <input type="text" name="profile-picture" value="<%= users[indice].profilePicture %> " >
             </div>
             <div>
                 <label for="date">Date of Birth</label>
-                <input type="date" name="date" value="<%= users.usersList[0].fecha %> ">
+                <input type="date" name="date" value="<%= users[indice].fecha %> ">
             </div>
             <div>
                 <label for="dni">DNI</label>
-                <input type="text" name="number-dni" value="<%= users.usersList[0].dni %> ">
+                <input type="text" name="number-dni" value="<%= users[indice].dni %> ">
             </div>
             <button type="submit">Confirm</button>
         </form>
