@@ -10,10 +10,24 @@
 
 
     <main>
-        <section class="center main-content">
-        <h1>Resultados de búsqueda.</h1>
-        <p>Construir la vista.</p>
-        </section>
+        <div class="user-detail container">
+            
+            <h1>Your results:</h1>
+            <section class="bottom">
+
+               
+                <% for( let i = 0; i < posts.postsList.length; i++ ) { %>
+                <article class="post">
+                    <a href="/posts/postDetails/0"> 
+                        <img src="<%=  posts.postsList[i].imagen %> " alt="">
+                        <p><%=  posts.postsList[i].description %></p>
+                    </a>
+                </article>
+                <% } %>
+
+            </section>
+            
+        </div>
     </main>
 
     <!--partials footer-->

@@ -6,7 +6,7 @@ const db = require("../data/data");
 const userController = {
     userDetails: (req, res) => {
         
-        res.render('userDetails');
+        res.render('userDetails', {user: db.usersList[0], posts: db.postsList} );
     }, 
     myProfile: (req, res) => {
         // console.log(db);

@@ -9,7 +9,7 @@ const indexController = {
 
     },
     searchResults: (req, res) => {
-        res.render('searchResults');
+        res.render('searchResults', { posts : db, comments : db} );
     },
 
 

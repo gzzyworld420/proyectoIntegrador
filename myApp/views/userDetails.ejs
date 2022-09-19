@@ -11,43 +11,29 @@
     <main>
         <div class="user-detail container">
             <section class="top main-content">
-                <img class="profile" src="https://via.placeholder.com/100x100" alt="">
+               
                 <div class="info-usuario">
-                    <p>Nombre de usuario</p> 
+                    <p><%= user.username %> </p> 
                     <a class="follow" href="">Follow</a>
                     <ul class="meta">
-                        <li>100 posts</li>
-                        <li>200 followers</li>
-                        <li>300 following</li>
+                        <li> <%= user.posts%> posts</li>
+                        <li><%= user.followers%> followers</li>
+                        <li><%= user.following%> following</li>
                     </ul>
                 </div>
             </section>
-            <section class="bottom">
-                <article class="post">
-                    <a href="/posts/postDetails">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="/posts/postDetails">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="/posts/postDetails">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="/posts/postDetails">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
-                <article class="post">
-                    <a href="/posts/postDetails">
-                        <img src="https://via.placeholder.com/200x250" alt="">
-                    </a>
-                </article>
+            
+            <section class="bottom">               
+                <% for( let i = 0; i < 3; i++ ) { %>
+                    <article class="post">
+                        <a href="/posts/postDetails/0">
+                            <img src="<%= posts[i].imagen %> " alt="">
+                        </a>
+                    </article>
+                <% } %>
+               
+              
+
             </section>
         </div>
     </main>

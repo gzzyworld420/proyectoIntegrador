@@ -217,6 +217,8 @@ const db = {
 
         },
     ],
+
+    
     bucarporId: function (id) {
         for (let i = 0; i < this.postsList.length; i++) {
             if (this.postsList[i].postId == id) {
@@ -225,14 +227,9 @@ const db = {
 
         }
     },
-    buscarporId: function (id) {
-        for (let i = 0; i < this.usersList.length; i++) {
-            if (this.usersList) {
-                
-            }
-            
-        }
-    }
+
+
+    
 
 
 }

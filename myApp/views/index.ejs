@@ -20,7 +20,7 @@
                     
                     <div class="post-body">
                         <a href="/posts/postDetails/<%= posts.postsList[i].postId %> ">
-                            <img src="<%= posts.postsList[i].imageName %> " alt="">
+                            <img src="<%= posts.postsList[i].imagen %> " alt="">
                         </a>
                     </div>
                     <ul class="post-reacciones">
@@ -41,13 +41,13 @@
                         <ul>
                             <h4>Other users say:</h4>
                             <li>
-                                <a href="/users/userDetails/<%= posts.postsList[i].userId %>">
+                                <a href="/users/userDetails">
                                 <span><%= posts.postsList[i].comment1 %> </span>
                             </a>
                             
                             </li>
                             <li>
-                                <a href="/users/userDetails/<%= posts.postsList[i].userId %>">
+                                <a href="/users/userDetails %>">
                                 <span><%= posts.postsList[i].comment2 %></span>
                             </a>
                             </li>

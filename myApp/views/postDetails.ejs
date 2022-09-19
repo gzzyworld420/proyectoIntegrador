@@ -14,12 +14,16 @@
         <div class="post-detail container">
 
             <section class="center main-content post">
+                <% for( let i = 0; i < 1; i++ ) { %>
+                
+              
                 <div class="info-usuario">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <p><a href="/users/userDetails/0">usuario</a></p>
+                    
+                    <p><a href="/users/userDetails/0"><%= posts[i].username %> </a></p>
                 </div>
-                <img class="photo" src="https://via.placeholder.com/500x600" alt="">
-             
+                <img class="photo" src="<%= posts[i].imagen %> " alt="">
+                
+                <% } %>
 
             </section>
 
@@ -32,11 +36,12 @@
                     </form>
 
                     <div>
+
                         <% for( let i = 0; i < users.length; i++ ) { %>
                         
                         
                         <article class="comment">
-                            <img src="https://via.placeholder.com/40" alt="">
+                            
                             <section class="content">
                                 <a class="user" href="/users/userDetails"><%= users[i].username %> </a>
                                 <span class="text"><%= users[i].commentDetallePost %> </span>
