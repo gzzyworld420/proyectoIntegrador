@@ -5,8 +5,7 @@ const db = require('../data/data');
 const indexController = {
     index: (req, res) => {
         
-        
-        res.render("index", { posts : db, comments : db});
+        res.render("index", { posts : db, comments : db} );
 
     },
     searchResults: (req, res) => {

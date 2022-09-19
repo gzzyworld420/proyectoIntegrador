@@ -185,7 +185,8 @@ const db = {
         },
 
     ],
-    commentsList: [{
+    commentsList: [
+        {
             postId: "",
             userId: 1,
             comment: "I bought them yesterday", 

@@ -1,6 +1,6 @@
 
 // siguiendo el modelo MVC, una vez ya creado el modelo, el modelo de base de datos se comunica con el controlador
-const db = require("../data/data");
+const db = require("../data/data"); 
 
 // methods
 const userController = {
