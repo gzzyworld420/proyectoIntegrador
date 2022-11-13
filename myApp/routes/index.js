@@ -7,7 +7,7 @@ const indexController = require("../controllers/indexController");
 // metodo
 router.get('/', indexController.index);
 
-// ruta parametrizada
+
 router.get('/searchResults', indexController.searchResults);
 
 // export

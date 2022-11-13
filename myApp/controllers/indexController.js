@@ -1,5 +1,6 @@
 // require
-const db = require('../data/data');
+//const db = require('../data/data');
+const db = require('../database/models')
 
 // methods
 const indexController = {
