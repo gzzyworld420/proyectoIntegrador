@@ -46,6 +46,7 @@ module.exports = function (sequelize, dataTypes) {
 
     let User = sequelize.define(alias, cols, config);
 
+    /*
     User.associate = function (models) {
         User.hasMany(models.Post, {
                 as: "Post",
@@ -58,6 +59,7 @@ module.exports = function (sequelize, dataTypes) {
                 })
             }
     }
+    */
 
     return User;
 

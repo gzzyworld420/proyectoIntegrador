@@ -14,6 +14,10 @@ module.exports =  function(sequelize, dataTypes) {
         textoDescriptivo : {
             type: dataTypes.STRING
         },
+        
+        FkUserid : {
+            type:dataTypes.INTEGER
+        },
         createdAt : {
             type:dataTypes.DATE
         },
@@ -22,9 +26,6 @@ module.exports =  function(sequelize, dataTypes) {
         },
         deletedAt : {
             type:dataTypes.DATE
-        },
-        FkUserid : {
-            type:dataTypes.INTEGER
         }
     };
 
@@ -36,7 +37,7 @@ module.exports =  function(sequelize, dataTypes) {
 
     let Post = sequelize.define(alias, cols, config);
 
-    
+    /*
     Post.associate = function(models){
         Post.belongsTo(models.User, {
             as: 'User',
@@ -46,8 +47,11 @@ module.exports =  function(sequelize, dataTypes) {
             as: 'Comment',
             foreignKey: 'idComentarios'
         })
+        
 
     }  
+
+    */
    
 
     return Post; 
