@@ -6,10 +6,21 @@ const postController = require('../controllers/postController');
 
 // metodo 
 
+//para mostrar el formulario de movies
+router.get('/addposts', postController.create);
 
-router.get('/addposts', postController.addPost);
+
+//Guardar la info del post
+
+router.post('/addposts', postController.store)
+
+/* UPDATE PARA POSTS
+
+router.get('update/:id', postController.update);
 
 
+
+*/
 
 
 // ruta parametrizada

@@ -7,9 +7,17 @@ const userController = require('../controllers/userController');
 // metodo
 router.get('/myprofile', userController.myProfile);
 router.get('/login', userController.login);
-router.get('/register', userController.register);
+router.post('loginPost', userController.loginPost);
+
+router.get('/register', userController.create);
+router.post('/register', userController.store);
+
 router.get('/userDetails', userController.userDetails);
 
+/*Crear post - mostrar el formulario
+router.get()
+
+*/
 //ruta parametrizada
 router.get('/editprofile/:id', userController.editProfile);
 

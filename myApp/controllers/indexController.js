@@ -1,8 +1,10 @@
 // require
 const db = require('../data/data');
-const dB = require('../database/models');
 
-const posts = dB.Post;
+
+//const db = require("../database/data")
+
+//const op = db.sequelice.Op
 
 
 // methods
@@ -10,6 +12,7 @@ const indexController = {
 
     index: (req, res) => {
 
+/*
         let criterios = {
 
         };
@@ -22,8 +25,8 @@ const indexController = {
         .catch(error => {
             console.log(error);
         })
-        
-        //res.render("index", { posts : db, comments : db} );
+        */
+        res.render("index", { posts : db, comments : db} );
 
     },
     searchResults: (req, res) => {
