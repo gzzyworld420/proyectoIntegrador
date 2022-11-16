@@ -61,10 +61,8 @@ values ('https://github.com/gzzyworld420/proyectoIntegrador/settings/pages','tex
 INSERT INTO comentarios (texto_descriptivo, FkUserId, FkPostId)
 values ('texto descriptivo', 3 , 2);
 
- 
- 
- 
- 
+
+
  
  
  
