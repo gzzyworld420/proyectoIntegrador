@@ -3,7 +3,7 @@ module.exports =  function(sequelize, dataTypes) {
     let alias = "Post";
 
     let cols = {
-        id_posteos : {
+        idPosteos : {
             autoIncrement: true,
              primaryKey: true,
              type:dataTypes.INTEGER
@@ -11,7 +11,7 @@ module.exports =  function(sequelize, dataTypes) {
         foto : {
             type: dataTypes.STRING
         },
-        texto_descriptivo : {
+        textoDescriptivo : {
             type: dataTypes.STRING
         },
         createdAt : {
@@ -36,18 +36,18 @@ module.exports =  function(sequelize, dataTypes) {
 
     let Post = sequelize.define(alias, cols, config);
 
+    
     Post.associate = function(models){
         Post.belongsTo(models.User, {
             as: 'User',
-            foreignKey: 'id_usuario'
+            foreignKey: 'idUsuario'
         }),
         Post.hasMany(models.Comment, {
             as: 'Comment',
-            through: "post_comment",
-            foreignKey: 'id_producto'
+            foreignKey: 'idComentarios'
         })
 
-    }
+    }  
    
 
     return Post; 

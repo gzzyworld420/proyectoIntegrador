@@ -3,12 +3,12 @@ module.exports =  function(sequelize, dataTypes) {
     let alias = "Comment";
 
     let cols = {
-        id_commentarios : {
+        idCommentarios : {
             auto_increment: true,
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        texto_descriptivo : {
+        textoDescriptivo : {
             type: dataTypes.STRING
         },
         createdAt : {
@@ -35,17 +35,17 @@ module.exports =  function(sequelize, dataTypes) {
 
     let Comment = sequelize.define(alias, cols, config);
 
-    /*
-    Comentario.associate = function(models){
-        Comentario.belongsTo(models.User, {
+    
+    Comment.associate = function(models){
+        Comment.belongsTo(models.User, {
             as: 'User',
-            foreignKey: 'id_usuario'
+            foreignKey: 'idUsuario'
         }),
-        Comentario.belongsTo(models.Post, {
+        Comment.belongsTo(models.Post, {
             as: 'product',
-            foreignKey: 'id_producto'
+            foreignKey: 'idProducto'
         })
-    } */
+    } 
 
     return Comment; 
     

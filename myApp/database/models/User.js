@@ -1,64 +1,64 @@
-module.exports =  function(sequelize, dataTypes) {
+module.exports = function (sequelize, dataTypes) {
 
     let alias = "User";
 
     let cols = {
-        id_usuarios : {
+        idUsuarios: {
             auto_increment: true,
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        email : {
+        email: {
             type: dataTypes.STRING,
-            
+
         },
-        username : {
+        username: {
             type: dataTypes.STRING
         },
-        contrasenia : {
+        contrasenia: {
             type: dataTypes.STRING
         },
-        texto_perfil : {
+        textoPerfil: {
             type: dataTypes.STRING
         },
-        fecha : {
+        fecha: {
             type: dataTypes.DATE
         },
-        dni : {
+        dni: {
             type: dataTypes.INTEGER
         },
-        createdAt : {
-            type:dataTypes.DATE
+        createdAt: {
+            type: dataTypes.DATE
         },
         updatedAt: {
-            type:dataTypes.DATE
+            type: dataTypes.DATE
         },
-        deletedAt : {
-            type:dataTypes.DATE
+        deletedAt: {
+            type: dataTypes.DATE
         },
     };
 
     let config = {
-        tableName : "usuarios",
-        timestamps : true,
-        underscored : false
+        tableName: "usuarios",
+        timestamps: true,
+        underscored: false
     }
 
     let User = sequelize.define(alias, cols, config);
 
-   User.associate = function (models) {
-       User.hasMany(models.Post, {
-           as: "Post",
-           foriegnKey: "FkUserid"
-       }),
     User.associate = function (models) {
-        User.hasMany(models.comment, {
-            as: "comment",
-            foreignKey: ""
-        })
+        User.hasMany(models.Post, {
+                as: "Post",
+                foriegnKey: "FkPostId"
+            }),
+            User.associate = function (models) {
+                User.hasMany(models.comment, {
+                    as: "Comment",
+                    foreignKey: "idCommentarios"
+                })
+            }
     }
-   }
 
-    return User; 
-    
+    return User;
+
 }
