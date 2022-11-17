@@ -3,7 +3,8 @@ const db = require('../data/data');
 
 
 const dB = require("../database/models");
-const posteos = dB.posts;
+const posts = dB.Post;
+const users = dB.User;
 
 //const op = db.sequelice.Op
 
@@ -12,15 +13,12 @@ const posteos = dB.posts;
 const indexController = {
 
     index: (req, res) => {
-
-
         let criterios = {
-
         };
 
-        posteos.findAll()
-        .then((result) => {
-            return res.render("index", { posteos : result}, { posts : db, comments : db} )
+        posts.findAll()
+        .then((results) => {
+            return res.render("index", { posts : results})
         })
 
         .catch(error => {
@@ -30,6 +28,7 @@ const indexController = {
         //res.render("index", { posts : db, comments : db} );
 
     },
+    
     searchResults: (req, res) => {
         res.render('searchResults', { posts : db, comments : db} );
     },

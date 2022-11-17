@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Crear middleware de session AQUI
 
 app.use(session({
-  secret: "Bien venido a myApp",
+  secret: "myApp",
   resave: false,
   saveUninitialized: true
 }))

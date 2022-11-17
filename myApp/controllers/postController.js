@@ -1,7 +1,7 @@
 // require
 const db = require('../data/data');
 
-//const db = require("../database/data")
+const dB = require("../database/models");
 
 //const op = db.sequelice.Op
 
@@ -14,7 +14,7 @@ const postController = {
     },
     store: (req, res) => {
 
-        let guardarPost = req.body;
+        let postAGuardar = req.body;
 
 
       return res.redirect('/');
