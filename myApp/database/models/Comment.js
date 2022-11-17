@@ -1,3 +1,4 @@
+// exportacion
 module.exports =  function(sequelize, dataTypes) {
 
     let alias = "Comment";
