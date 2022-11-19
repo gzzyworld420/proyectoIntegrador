@@ -8,11 +8,11 @@ module.exports =  function(sequelize, dataTypes) {
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        FkPostId : {
+        post_id : {
             type: dataTypes.INTEGER
         },
 
-        FkUserId : {
+        user_id : {
             type:dataTypes.INTEGER
         },
 
@@ -35,25 +35,25 @@ module.exports =  function(sequelize, dataTypes) {
     };
 
     let config = {
-        tableName : "commentarios",
+        tableName : "comentarios",
         timestamps : true,
         underscored : false,
     }
 
     let Comment = sequelize.define(alias, cols, config);
 
-    /*
+    
     Comment.associate = function(models){
         Comment.belongsTo(models.User, {
             as: 'User',
-            foreignKey: 'idUsuario'
+            foreignKey: 'user_id'
         }),
         Comment.belongsTo(models.Post, {
-            as: 'product',
-            foreignKey: 'idProducto'
+            as: 'Post',
+            foreignKey: 'post_id'
         })
     } 
-    */
+    
 
     return Comment; 
     

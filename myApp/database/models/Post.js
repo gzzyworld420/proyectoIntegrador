@@ -15,7 +15,7 @@ module.exports =  function(sequelize, dataTypes) {
             type: dataTypes.STRING
         },
         
-        FkUserid : {
+        user_id : {
             type:dataTypes.INTEGER
         },
         createdAt : {
@@ -37,21 +37,21 @@ module.exports =  function(sequelize, dataTypes) {
 
     let Post = sequelize.define(alias, cols, config);
 
-    /*
+    
     Post.associate = function(models){
         Post.belongsTo(models.User, {
             as: 'User',
-            foreignKey: 'idUsuario'
+            foreignKey: 'user_id'
         }),
         Post.hasMany(models.Comment, {
             as: 'Comment',
-            foreignKey: 'idComentarios'
+            foreignKey: 'post_id'
         })
         
 
     }  
 
-    */
+    
    
 
     return Post; 

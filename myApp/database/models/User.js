@@ -13,12 +13,14 @@ module.exports = function (sequelize, dataTypes) {
 
         },
         username: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            not_null: true,
+            
         },
         contrasenia: {
             type: dataTypes.STRING
         },
-        textoPerfil: {
+        fotoPerfil: {
             type: dataTypes.STRING
         },
         fecha: {
@@ -27,6 +29,7 @@ module.exports = function (sequelize, dataTypes) {
         dni: {
             type: dataTypes.INTEGER
         },
+        
         createdAt: {
             type: dataTypes.DATE
         },
@@ -36,6 +39,7 @@ module.exports = function (sequelize, dataTypes) {
         deletedAt: {
             type: dataTypes.DATE
         },
+
     };
 
     let config = {
@@ -46,20 +50,22 @@ module.exports = function (sequelize, dataTypes) {
 
     let User = sequelize.define(alias, cols, config);
 
-    /*
+    
     User.associate = function (models) {
         User.hasMany(models.Post, {
                 as: "Post",
-                foriegnKey: "FkPostId"
-            }),
-            User.associate = function (models) {
-                User.hasMany(models.comment, {
-                    as: "Comment",
-                    foreignKey: "idCommentarios"
-                })
-            }
+                foriegnKey: "user_id"
+            })
+
+        User.hasMany(models.Comment, {
+            as: "Comment",
+            foreignKey: "user_id"
+        })
+
+    
+            
     }
-    */
+    
 
     return User;
 

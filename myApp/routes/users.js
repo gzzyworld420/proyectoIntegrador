@@ -3,14 +3,30 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 
+// dos modulos importantes para cargar arcivos
+let multer = require('multer');
+let path = require('path');
+
+//Multer
+let storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, '../public/images/users'));
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+let upload = multer( { storage : storage } );
+
 
 // metodo
 router.get('/myprofile', userController.myProfile);
 router.get('/login', userController.login);
-router.post('loginPost', userController.loginPost);
+router.post('/login', userController.loginPost);
 
 router.get('/register', userController.create);
-router.post('/register', userController.store);
+router.post('/register', upload.single('profile-picture'), userController.store);
 
 router.get('/userDetails', userController.userDetails);
 

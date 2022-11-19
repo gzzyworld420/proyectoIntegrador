@@ -11,7 +11,7 @@
     <main>
         <section class="center main-content">
             <h1>Register</h1>
-            <form action="/users/register" method="POST">
+            <form action="/users/register" method="POST" enctype="multipart/form-data">
                 <div>
                     <label for="email">Email</label>
                     <input type="email" name="email" placeholder="Insert your email">
@@ -26,7 +26,7 @@
                 </div>
                 <div>
                     <label for="profile-picture">Profile Picture</label>
-                    <input type="text" name="profile-picture" placeholder="Choose your profile picture">
+                    <input type="file" name="profile-picture" placeholder="Choose your profile picture">
                 </div>
                 <div>
                     <label for="date">Date of Birth</label>
@@ -39,6 +39,9 @@
                 <button type="submit">Confirm</button>
             </form>
            
+           
+
+
 
         </section>
 

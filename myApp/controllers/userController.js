@@ -1,12 +1,12 @@
 
 // siguiendo el modelo MVC, una vez ya creado el modelo, el modelo de base de datos se comunica con el controlador
 const db = require("../data/data"); 
-const bycript = require('bcryptjs')
-/*
-const db = require("../database/data")
-const User = db.User
-const op = db.sequelice.Op
-*/
+const bcrypt = require('bcryptjs');
+
+const dB = require("../database/models");
+const User = dB.User
+//const op = db.sequelice.Op
+
 
 // methods
 const userController = {
@@ -27,34 +27,40 @@ const userController = {
 
     store: (req, res) => {
         let userStorage = req.body;
+       // let profilePicture = req.file.fieldname;
 
-        /*  LO DE HASHING 
+       let errors = {};
+        // HASHING
+        
+        let passEncriptada = bcrypt.hashSync(userStorage.contrasenia, 10);  
         let user = {
-            name: userStorage.name,
+
             email: userStorage.email,
-            password: bycript.hashSync(userStorage.password, 10);
+            nombre: userStorage.username,
+            password: passEncriptada,
+            fotoPerfil: userStorage.fotoPerfil,
+            fecha: userStorage.fecha,
 
-        }
+           // img : profilePicture //Multer
 
-        */
+        } 
 
-
-        /*  CREATE PARA LA CREACION DE NUEVOS USUARIOS
-
-        User.create(user) - Este se implementa solamente despues de que funciona perfectamente lo de userStorage(CRUD)
+    
 
         User.create(userStorage)
         .then((results) => {
-            return res.redirect('/users/login');
+            return res.redirect('/users/login')
         })
-        .catch( (err) => {
-            console.log(err)
-        });
-        */
+        .catch((err) => {
+            console.log(err);
+        })
 
         
 
-        return res.send(userStorage)
+
+         
+
+      
     },
 
     login: (req, res) => {
@@ -62,6 +68,8 @@ const userController = {
     }, 
 
     loginPost: (req, res) => {
+
+        return res.send(req.body);
         /*
         let info = req.body;
         let filtro = {
@@ -79,7 +87,7 @@ const userController = {
             }
         }) 
         .catch(error => console.log(error))
-         return res.send(req.body);
+         
         */
 
        
