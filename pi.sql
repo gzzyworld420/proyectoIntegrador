@@ -63,3 +63,34 @@ CHANGE COLUMN `dni` `dni` INT(10) NOT NULL ;
 
 INSERT INTO `shoes_social`.`usuarios` (`idUsuarios`, `email`, `username`, `contrasenia`, `dni`) VALUES ('2', 'udesa.edu.ar@', 'Seggy_ben', '1222', '22');
 
+ALTER TABLE `shoes_social`.`posteos` 
+CHANGE COLUMN `updateAt` `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE 
+INSERT INTO `shoes_social`.`posteos` (`idPosteos`, `foto`, `textoDescriptivo`, `FkUserId`) VALUES ('1', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/nike-blazer-mid-77-1604489073.png?resize=480:*', 'My new Shoes', '1');
+UPDATE `shoes_social`.`posteos` SET `FkUserId` = '3' WHERE (`idPosteos` = '1');
+ALTER TABLE `shoes_social`.`usuarios` 
+CHANGE COLUMN `email` `email` VARCHAR(500) NOT NULL DEFAULT 'null' ;
+ALTER TABLE `shoes_social`.`usuarios` 
+CHANGE COLUMN `email` `email` VARCHAR(500) NULL DEFAULT NULL ;
+ALTER TABLE `shoes_social`.`usuarios` 
+CHANGE COLUMN `textoPerfil` `textoPerfil` VARCHAR(500) NULL ;
+ALTER TABLE `shoes_social`.`usuarios` 
+DROP INDEX `username_UNIQUE` ;
+;
+ALTER TABLE `shoes_social`.`usuarios` 
+CHANGE COLUMN `username` `username` VARCHAR(500) NULL DEFAULT NULL ;
+ALTER TABLE `shoes_social`.`usuarios` 
+CHANGE COLUMN `contrasenia` `contrasenia` VARCHAR(500) NULL DEFAULT NULL ;
+ALTER TABLE `shoes_social`.`usuarios` 
+CHANGE COLUMN `dni` `dni` INT(10) NULL DEFAULT NULL ;
+ALTER TABLE `shoes_social`.`usuarios` 
+CHANGE COLUMN `email` `email` VARCHAR(500) NULL DEFAULT 'default' ;
+ALTER TABLE `shoes_social`.`usuarios` 
+DROP INDEX `email_UNIQUE` ;
+;
+ALTER TABLE `shoes_social`.`usuarios` 
+CHANGE COLUMN `email` `email` VARCHAR(500) NULL DEFAULT NULL ,
+CHANGE COLUMN `username` `username` VARCHAR(50) NULL DEFAULT NULL ,
+CHANGE COLUMN `contrasenia` `contrasenia` VARCHAR(100) NULL DEFAULT NULL ,
+CHANGE COLUMN `textoPerfil` `textoPerfil` VARCHAR(100) NULL DEFAULT NULL ;
+ALTER TABLE `shoes_social`.`usuarios` 
+ADD COLUMN `img` VARCHAR(300) NOT NULL AFTER `dni`;
