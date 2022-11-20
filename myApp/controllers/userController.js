@@ -29,27 +29,27 @@ const userController = {
         let userStorage = req.body;
        // let profilePicture = req.file.fieldname;
 
-       let errors = {};
+       //let errors = {};
         // HASHING
-        
-        let passEncriptada = bcrypt.hashSync(userStorage.contrasenia, 10);  
+        /*
+        let passEncriptada = bcrypt.hashSync(userStorage.password, 10);  
         let user = {
 
             email: userStorage.email,
             nombre: userStorage.username,
             password: passEncriptada,
-            fotoPerfil: userStorage.fotoPerfil,
-            fecha: userStorage.fecha,
+            
 
            // img : profilePicture //Multer
 
         } 
 
+        */
     
 
         User.create(userStorage)
         .then((results) => {
-            return res.redirect('/users/login')
+            return res.redirect('/users/login');
         })
         .catch((err) => {
             console.log(err);

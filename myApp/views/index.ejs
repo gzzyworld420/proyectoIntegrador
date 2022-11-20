@@ -11,16 +11,18 @@
    <%- include('./partials/header') %>
 
     <main>
-        <h1><%=  %> </h1>
+
         <section class="center main-content">
+            
             <% for( let i = 0; i < posts.length; i++ ) { %>
                 <article class="post">
                     <div class="info-usuario ">
-                        <img src="<%= posts[i] %> " alt="">
+                        <a href="/posts/postDetails/<%= posts[i].id_users %> "><%= posts[i].users %> </a>
+                       
                     </div>
                     
                     <div class="post-body">
-                        <a href="/posts/postDetails/<%= posts[i].FkUserid %> ">
+                        <a href="/posts/postDetails/<%= posts[i].id_users %> ">
                             <img src="<%= posts[i].foto %> " alt="">
                         </a>
                     </div>
@@ -35,28 +37,32 @@
                     
                     <div class="post-comentarios">
                         <h4>
-                            <a href="/users/userDetails">
-                            <%= posts[i].username %>:
+                            <a href="/users/userDetails"><%= posts[i].User  %>:
                         </h4>
-                        <h4 class="post-description"><%= posts[i].description %> </h4>
-                        <ul>
-                            <h4>Other users say:</h4>
+                        <h4 class="post-description"><%= posts[i].texto_descriptivo %> </h4>
+
+                        <h4>Other users say:</h4>
+                    <ul>
+                                    
                             <li>
-                                <a href="/users/userDetails">
-                                <span><%= posts[i].comment1 %> </span>
+                                <a href="/users/userDetails/<%= posts[i].texto_descriptivo %>">
+                                <span><%= posts[i].comments %> </span>
                             </a>
                             
                             </li>
+                     
+                            
                             <li>
-                                <a href="/users/userDetails">
-                                <span><%= posts[i].comment2 %></span>
+                                <a href="/users/userDetails/<%= posts[i].id_users %> ">
+                                <span><%= posts[i].comments %></span>
                             </a>
                             </li>
-                            <a href="/posts/postDetails/<%= posts[i]%>">Ver más...</a>
+                            <a href="/posts/postDetails/<%= posts[i].id%>">Ver más...</a>
                         </ul>
                     </div>
                 </article>
             <% } %>
+            
         </section>
     </main>
 

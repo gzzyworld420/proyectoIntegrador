@@ -1,9 +1,9 @@
 // require
 const db = require('../data/data');
-
+//const posts = db.posts
 
 const dB = require("../database/models");
-const posts = dB.Post;
+const posteos = dB.Posteo;
 const users = dB.User;
 
 //const op = db.sequelice.Op
@@ -12,20 +12,30 @@ const users = dB.User;
 // methods
 const indexController = {
 
+    
     index: (req, res) => {
+       
         let criterios = {
+            include: [{ all: true, nested: true }, {association: "users"}, {association: "comments"}],
+            limit: 20,
+            order: [['created_at', 'DESC']]
+
         };
 
-        posts.findAll()
+        posteos.findAll(criterios, {
+            include: [ {association: "users"}, {association: "comments"}]
+        })
         .then((results) => {
-            return res.render("index", { posts : results})
+            return res.render("index", { posts : results}
+            )
         })
 
         .catch(error => {
             console.log(error);
         })
         
-        //res.render("index", { posts : db, comments : db} );
+        
+       //return res.render("index", { posts : db, comments : db} );
 
     },
     

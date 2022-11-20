@@ -1,61 +1,59 @@
 // exportacion
-module.exports =  function(sequelize, dataTypes) {
+module.exports = function (sequelize, dataTypes) {
 
     let alias = "Comment";
 
     let cols = {
-        idCommentarios : {
+        id: {
             auto_increment: true,
             primaryKey: true,
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER(10)
         },
-        post_id : {
-            type: dataTypes.INTEGER
-        },
-
-        user_id : {
-            type:dataTypes.INTEGER
+        id_posts: {
+            type: dataTypes.INTEGER(10)
         },
 
-        textoDescriptivo : {
-            type: dataTypes.STRING
+        id_users: {
+            type: dataTypes.INTEGER(10)
         },
-        createdAt : {
-            type:dataTypes.DATE
+
+        texto_descriptivo: {
+            type: dataTypes.STRING(500)
         },
-        updatedAt: {
-            type:dataTypes.DATE
+        created_at: {
+            type: dataTypes.DATE
         },
-        deletedAt : {
-            type:dataTypes.DATE
+        updated_at: {
+            type: dataTypes.DATE
         },
-        
 
 
 
     };
 
     let config = {
-        tableName : "comentarios",
-        timestamps : true,
-        underscored : false,
+        tableName: "comments",
+        timestamps: false,
+        underscored: true,
     }
+
 
     let Comment = sequelize.define(alias, cols, config);
 
-    
-    Comment.associate = function(models){
-        Comment.belongsTo(models.User, {
-            as: 'User',
-            foreignKey: 'user_id'
-        }),
-        Comment.belongsTo(models.Post, {
-            as: 'Post',
-            foreignKey: 'post_id'
-        })
-    } 
-    
 
-    return Comment; 
-    
+    Comment.associate = function (models) {
+
+        Comment.belongsTo(models.User, {
+                as: 'users',
+                foreignKey: 'id_users'
+            }),
+            Comment.belongsTo(models.Posteo, {
+                as: 'posts',
+                foreignKey: 'id_posts'
+            })
+    }
+
+
+    return Comment;
+
 }

@@ -2,7 +2,7 @@
 const db = require('../data/data');
 
 const dB = require("../database/models");
-const Post = dB.Post;
+const Posteo = dB.Posteo;
 //const op = db.sequelice.Op
 
 
@@ -18,11 +18,10 @@ const postController = {
 
         let post = {
             imagen: postAGuardar.foto,
-            texto: postAGuardar.textoDescriptivo
-            
+            texto: postAGuardar.texto_descriptivo
+           
         };
-
-        Post.create(post)
+        Posteo.create(post)
         .then((results) => {
             return res.redirect('/')
         })
