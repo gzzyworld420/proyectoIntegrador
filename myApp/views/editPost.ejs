@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--partials head-->
+<%- include('partials/head') %>
+
+<body>
+    <!--partials header-->
+    <%- include('partials/header') %>
+
+
+    <main>
+        <section class="center main-content">
+           
+            <h1>Edit post</h1>
+            <!--form-->
+            <form action="/posts/update" method="POST">
+                <div>
+                    <label for="post"></label>
+                    <input type="number" name="id" hidden id="texto_descriptivo" placeholder="Post Description" value=" <%= posts.id %>  " >
+                </div>
+                <div>
+                    <label for="image">Select Image</label>
+                    <input type="file" name="image" id="foto" placeholder="Image" value="<%= posts.foto %> ">
+                </div>
+                <div>
+                    <label for="post">Post Description</label>
+                    <input type="text" name="post" id="texto_descriptivo" placeholder="Post Description" value=" <%= posts.texto_descriptivo %>  " >
+                </div>
+                <div>
+                
+                
+                
+                <button type="submit">Confirm</button>
+            </form>
+
+        </section>
+    </main>
+
+    <!--partials footer-->
+    <%- include('partials/footer') %>
+
+
+</body>
+
+</html>

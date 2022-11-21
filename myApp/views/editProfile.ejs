@@ -11,32 +11,32 @@
         <section class="center main-content">
             <h1>Edit Profile</h1>
           <!--form-->
-          <form action="/users/myprofile" >
+          <form action="/users/myprofile" method="POST">
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email" value="<%= user[indice].email%> ">
+                <input type="email" id="email" name="email" value="<%= user[indice].email%> ">
             </div>
             <div>
                 <label for="username">Username</label>
-                <input type="text" name="username" value="<%= user[indice].userName %> ">
+                <input type="text" name="username" id="username" value="<%= user[indice].userName %> ">
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" name="password" value="<%= user[indice].contrasenia %> ">
+                <input type="password" name="password" id="password" value="<%= user[indice].contrasenia %> ">
             </div>
             <div>
                 <label for="profile-picture">Profile Picture</label>
-                <input type="text" name="profile-picture" value="<%= user[indice].profilePicture %> " >
+                <input type="text" name="profile-picture" id="profile_picture" value="<%= user[indice].profilePicture %> " >
             </div>
             <div>
                 <label for="date">Date of Birth</label>
-                <input type="date" name="date" value="<%= user[indice].fecha %> ">
+                <input type="date" name="date" id="fecha" value="<%= user[indice].fecha %> ">
             </div>
             <div>
                 <label for="dni">DNI</label>
-                <input type="text" name="number-dni" value="<%= user[indice].dni %> ">
+                <input type="text" name="number-dni" id="dni" value="<%= user[indice].dni %> ">
             </div>
-            <button type="submit">Confirm</button>
+            <button type="submit">modify</button>
         </form>
         </section> 
     </main>

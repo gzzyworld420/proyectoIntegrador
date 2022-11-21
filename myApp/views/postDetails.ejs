@@ -21,7 +21,7 @@
                     
                     <p><a href="/users/userDetails"><%= posts[i].username %> </a></p>
                 </div>
-                <img class="photo" src="<%= posts[i].imagen %> " alt="">
+                <img class="photo" src="<%= posts[i].foto %> " alt="">
                 
                 <% } %>
 
@@ -37,21 +37,39 @@
 
                     <div>
 
-                        <% for( let i = 0; i < users.length; i++ ) { %>
+                        <% for( let i = 0; i < posts.length; i++ ) { %>
                         
                         
                         <article class="comment">
                             
                             <section class="content">
-                                <a class="user" href="/users/userDetails"><%= users[i].username %> </a>
-                                <span class="text"><%= users[i].commentDetallePost %> </span>
+                                <a class="user" href="/users/userDetails">Dice: <%= posts[i].usuarios%> </a>
+                                <span class="text"><%= posts[i].comment %> </span>
                             </section>
                         </article>
                         <% } %>
                     </div>
                 </section>
             </section>
+
+
+            <div class="post-detail container margenes">
+
+                <form action="/posts/update" method = "get" class="comment-form">
+                    <input type="text" value="<%= posts.id %>" >
+                    <button type="submit" >Edit Post</button>
+                </form>
+
+                    <form action="/posts/delete " method = "post" class="comment-form">
+                    
+                        <button type="submit" >Delete Post</button>
+                    </form>
+
+            </div>    
+
         </div>
+
+
     </main>
 
     <!--partial footer-->

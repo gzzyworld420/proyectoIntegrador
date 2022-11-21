@@ -22,6 +22,8 @@ let storage = multer.diskStorage({
 
 // metodo
 router.get('/myprofile', userController.myProfile);
+//router.post('/myprofile', userController.editMyProfile)
+
 router.get('/login', userController.login);
 router.post('/login', userController.loginPost);
 
@@ -36,6 +38,10 @@ router.get()
 */
 //ruta parametrizada
 router.get('/editprofile/:id', userController.editProfile);
+
+//router.get('/editprofile', userController.editMyProfile)
+//router.post('/editprofile', userController.editProfile)
+
 
 // export
 module.exports = router;

@@ -22,21 +22,14 @@ let upload = multer( { storage : storage } );
 
 //para mostrar el formulario de movies
 router.get('/addposts', postController.create);
-
-
-//Guardar la info del post
-
 router.post('/addposts', upload.single('profile-picture'), postController.store)
 
-/* UPDATE PARA POSTS
-
-router.get('update/:id', postController.update);
 
 
+router.get('/update', postController.update);
+router.post('/update', postController.edit);
 
-*/
-
-
+router.post('/delete', postController.destroy)
 // ruta parametrizada
 router.get('/postdetails/:id', postController.postDetails);
 
