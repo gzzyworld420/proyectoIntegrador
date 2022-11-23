@@ -168,40 +168,6 @@ const userController = {
             })
 
     },
-
-    login: (req, res) => {
-        let errores = {}
-        db.Usuario.findOne({
-                where: {
-                    email: req.body.email
-                }
-            })
-            .then(function (resultados) {
-                if (resultados != null) {
-                    let booleano = bcrypt.compareSync(req.body.contrasenia, resultados.contrasenia);
-                    if (booleano) {
-                        req.session.user = resultados.dataValues
-                        if (req.body.recordarme != null) {
-                            res.cookie('userId', resultados.dataValues.id, {
-                                maxAge: 1000 * 60 * 10
-                            })
-                        }
-                        return res.redirect('/')
-                    } else {
-                        errores.message2 = 'Contraseña incorrecta!'
-                        res.locals.errores = errores
-                        return res.render('login')
-                    }
-                } else {
-                    errores.message3 = 'El e-mail que pusiste no existe!'
-                    res.locals.errores = errores
-                    return res.render('login')
-                }
-            }).catch(function (error) {
-                return res.send(error)
-            })
-    },
-
     logout: (req,res) =>{
         res.clearCookie('userId')
         req.session.destroy();
