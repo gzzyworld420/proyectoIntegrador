@@ -8,7 +8,7 @@ const users = dB.User;
 
 // methods
 
-const postController = { 
+const postController = {
     searchbyId: (req, res) => {
         let idBuscado = req.params.id;
 
@@ -26,7 +26,6 @@ const postController = {
         })
         Promise.all([followers, resUsuario])
             .then(function ([followersres, resUsuariores]) {
-                let posteosCronolicos = resUsuariores.posteo.reverse()
                 return res.render('userDetails', {
                     user: db.usersList,
                     followers: followersres,
