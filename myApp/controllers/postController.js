@@ -8,26 +8,7 @@ const users = dB.User;
 
 // methods
 
-const postController = {
-    searchbyId: (req, res) => {
-        let idBuscado = req.params.id
-        posteos.findByPk(idBuscado, {
-                order: [
-                    ["created_at", "ASC"]
-                ],
-                include: [{
-                    all: true,
-                    nested: true
-                }]
-            })
-            .then(function (resultadoPosteo) {
-                let comentariosOrdenados = resultadoPosteo.comentarios.reverse()
-                return res.render('detallePost', )
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    },
+const postController = { 
     create: (req, res) => {
         if (req.session.user != undefined) {
             return res.render('agregarPost')
@@ -154,6 +135,35 @@ const postController = {
             .catch((error) => {
                 return res.redirect('/')
             })
+
+    },
+    likes: (req, res) => {
+        let likes = {}
+        if (req.session.user != null) {
+            db.Likes.findOne({
+                    where: [{
+                        id_usuario: req.session.user.id
+                    }, {
+                        id_posteo: req.body.idPosteo
+                    }]
+                })
+                .then(function (relacionEncontrada) {
+                    if (relacionEncontrada == undefined) {
+                        db.Likes.create({
+                            id_usuario: req.session.user.id,
+                            id_posteo: req.body.idPosteo
+                        }).then(function (info) {
+                            return res.redirect('/posteo/detalle/id/' + req.body.idPosteo)
+                        }).catch(function (error) {
+                            console.log(error);
+                        })
+                    } else {
+                        return res.redirect('/posteo/detalle/id/' + req.body.idPosteo)
+                    }
+                })
+        } else {
+            return res.redirect('/usuario/login')
+        }
 
     }
 }
