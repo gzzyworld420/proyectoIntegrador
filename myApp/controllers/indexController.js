@@ -2,10 +2,6 @@
 let db = require('../database/models')
 const db = require('../data/data');
 
-const {
-    where,
-    EmptyResultError
-} = require('sequelize');
 const posteos = dB.Posteo;
 let comentario = db.comentario;
 const users = dB.User;
