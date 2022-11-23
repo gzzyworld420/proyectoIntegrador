@@ -9,6 +9,33 @@ const users = dB.User;
 // methods
 
 const postController = { 
+    searchbyId: (req, res) => {
+        let idBuscado = req.params.id;
+
+        let followers = db.Seguidor.findAll({
+            where: [{
+                id_seguido: idBuscado
+            }]
+        })
+
+        let resUsuario = db.Usuario.findByPk(idBuscado, {
+            include: [{
+                all: true,
+                nested: true
+            }]
+        })
+        Promise.all([followers, resUsuario])
+            .then(function ([followersres, resUsuariores]) {
+                let posteosCronolicos = resUsuariores.posteo.reverse()
+                return res.render('userDetails', {
+                    user: db.usersList,
+                    followers: followersres,
+                    posts: db.postsList
+                })
+            }).catch(function (error) {
+                return res.send(error)
+            })
+    },
     create: (req, res) => {
         if (req.session.user != undefined) {
             return res.render('agregarPost')

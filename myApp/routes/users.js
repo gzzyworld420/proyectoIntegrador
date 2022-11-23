@@ -32,6 +32,14 @@ router.post('/register', userController.store);
 
 router.get('/userDetails', userController.userDetails);
 
+router.get('/detalle/id/:id', userController.searchbyId)
+
+router.get('/registrar', userController.register)
+
+router.get('/logout', userController.logout)
+
+router.post('/seguir', userController.follow)
+
 /*Crear post - mostrar el formulario
 router.get()
 

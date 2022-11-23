@@ -28,7 +28,7 @@ const userController = {
         Promise.all([followers, resUsuario])
             .then(function ([followersres, resUsuariores]) {
                 let posteosCronolicos = resUsuariores.posteo.reverse()
-                return res.render('detalleUsuario', {
+                return res.render('userDetails', {
                     user: db.usersList,
                     followers: followersres,
                     posts: db.postsList
@@ -205,6 +205,28 @@ const userController = {
             indice: req.params.id
         });
     },
+    follow: (req,res) => {
+        let followersmsg = {}
+        if (req.session.user != null) {
+            db.Seguidor.findOne({ where: [{ id_seguidor: req.session.user.id }, { id_seguido: req.body.idPerfil }] })
+                .then(function (relacionEncontrada) {
+                    if (relacionEncontrada == undefined) {
+                        db.Seguidor.create({
+                            id_seguidor: req.session.user.id,
+                            id_seguido: req.body.idPerfil
+                        }).then(function (info) {
+                            return res.redirect('/user/detalle/id/' + req.body.idPerfil)
+                        }).catch(function (error) {
+                            console.log(error);
+                        })
+                    } else {
+                        return res.redirect('/user/detalle/id/' + req.body.idPerfil)
+                    }
+                })
+        } else {
+            return res.redirect('/usuario/login')
+        }
+    }
     /*
     editMyProfile: (req, res) => {
         return res.render('myProfile');

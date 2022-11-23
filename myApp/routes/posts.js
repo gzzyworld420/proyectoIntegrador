@@ -3,6 +3,10 @@ const express = require('express');
 const router = express.Router();
 const postController = require('../controllers/postController');
 
+
+router.get('/detalle/id/:id', postController.searchbyId)
+router.post('/detalle/comentarios', postController.comments)
+router.post('/detalle/like', postController.likes)
 // dos modulos importantes para cargar arcivos
 let multer = require('multer');
 let path = require('path');
@@ -28,6 +32,8 @@ router.post('/addposts', upload.single('profile-picture'), postController.store)
 
 router.get('/update', postController.update);
 router.post('/update', postController.edit);
+
+router.post('/crear', postController.add)
 
 router.post('/delete', postController.destroy)
 // ruta parametrizada
