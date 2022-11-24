@@ -1,10 +1,10 @@
 // require
 let db = require('../database/models')
-const db = require('../data/data');
+// const db = require('../data/data');
 
-const posteos = dB.Posteo;
+const posteos = db.Posteo;
 let comentario = db.comentario;
-const users = dB.User;
+const users = db.User;
 let op = db.sequelize.Op;
 
 // prueba cambios en el indexController
@@ -27,14 +27,13 @@ const indexController = {
             ]
 
         };
-        posteos.findAll(criterios, {
-            include: [{
-                association: "users"
-            }, {
-                association: "comments"
-            }]
+        posteos.findAll(criterios)
+        .then((results)=> {
+            res.render('index', {posteos: results})
+        }) 
+        .catch((error)=>{
+            console.log(error);
         })
-
     },
     searchUsuarios: (req, res) => {
         return res.render('formSearchUsuarios')
@@ -57,11 +56,14 @@ const indexController = {
             ]
         }
         usuario.findAll(criterios)
-            .then(function (resultado) {
+            .then( (resultado) => {
                 return res.render('resUserSearch', {
-                    post: db,
-                    comments: db
+                    post: resultado,
+                    comments: resultado,
                 })
+            })
+            .catch((error)=>{
+                console.log(error);
             })
     },
     search: (req, res) => {
@@ -73,7 +75,7 @@ const indexController = {
             limit: 10,
             order: [['created_at', 'DESC']]
         }
-        let segundocriterio = {
+        let segundoCriterio = {
             include: [{ all: true, nested: true }],
             where: [{ nombre: { [op.like]: "%" + buscado + "%" } }],
             limit: 10,
@@ -81,20 +83,20 @@ const indexController = {
         }
         if (req.query.order != null) {
             posteo.findAll(segundoCriterio)
-            .then(function (resultado) {
-                return res.render('searchResult', { post: db, comments: db})
+            .then( (resultado) => {
+                return res.render('searchResult', { post: resultado, comments: resultado})
             })
-            .catch(function (error) {
+            .catch( (error) => {
                 return res.send(error)
             })
             
         } else {
             posteo.findAll(primerCriterio)
-            .then(function (resultado) {
-                return res.render('searchResult', { post: db, comments: db })
+            .then( (resultado) => {
+                return res.render('searchResult', { post: resultado, comments: resultado})
             
             })
-            .catch(function (error) {
+            .catch( (error) => {
                 return res.send(error)
             })
         }
