@@ -25,7 +25,7 @@ router.get('/myprofile', userController.myProfile);
 //router.post('/myprofile', userController.editMyProfile)
 
 router.get('/login', userController.login);
-router.post('/login', userController.loginPost);
+//router.post('/login', userController.loginPost);
 
 router.get('/register', userController.create);
 router.post('/register', upload.single('profile_picture') ,userController.store);
@@ -34,21 +34,20 @@ router.get('/userDetails', userController.userDetails);
 
 router.get('/detalle/id/:id', userController.searchbyId)
 
-router.get('/registrar', userController.register)
+//router.get('/register', userController.register)
 
 router.get('/logout', userController.logout)
 
 router.post('/seguir', userController.follow)
 
-/*Crear post - mostrar el formulario
-router.get()
 
-*/
+
+
 //ruta parametrizada
 router.get('/editprofile/:id', userController.editProfile);
 
-//router.get('/editprofile', userController.editMyProfile)
-//router.post('/editprofile', userController.editProfile)
+//router.post('/editprofile', userController.editMyProfile)
+
 
 
 // export

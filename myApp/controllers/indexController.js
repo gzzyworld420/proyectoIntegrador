@@ -1,11 +1,11 @@
 // require
-let db = require('../database/models')
-const db = require('../data/data');
+let dB = require('../database/models')
+//const db = require('../data/data');
 
 const posteos = dB.Posteo;
-let comentario = db.comentario;
+let comentario = dB.comentario;
 const users = dB.User;
-let op = db.sequelize.Op;
+let op = dB.sequelize.Op;
 
 // prueba cambios en el indexController
 // methods
@@ -16,10 +16,6 @@ const indexController = {
             include: [{
                 all: true,
                 nested: true
-            }, {
-                association: "users"
-            }, {
-                association: "comments"
             }],
             limit: 20,
             order: [
@@ -27,12 +23,23 @@ const indexController = {
             ]
 
         };
-        posteos.findAll(criterios, {
+        posteos.findAll(criterios, 
+            /*
+            {
             include: [{
                 association: "users"
             }, {
                 association: "comments"
             }]
+        } */
+        
+        )
+
+        .then((resultados) => {
+            return res.render('index', {posts:resultados})
+        })
+        .catch((err) => {
+            console.log(err);
         })
 
     },
@@ -56,11 +63,11 @@ const indexController = {
                 ['created_at', 'DESC']
             ]
         }
-        usuario.findAll(criterios)
+        users.findAll(criterios)
             .then(function (resultado) {
                 return res.render('resUserSearch', {
-                    post: db,
-                    comments: db
+                    post: resultado,
+                    comments: resultado
                 })
             })
     },

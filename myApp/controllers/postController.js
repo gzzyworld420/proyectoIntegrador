@@ -2,9 +2,9 @@
 let db = require('../database/models')
 //const db = require('../data/data');
 const session = require('express-session');
-const posteos = dB.Posteo;
+const posteo = db.Posteo;
 let comentario = db.comentario;
-const users = dB.User;
+const users = db.User;
 
 // methods
 
@@ -12,13 +12,13 @@ const postController = {
     searchbyId: (req, res) => {
         let idBuscado = req.params.id;
 
-        let followers = db.Seguidor.findAll({
+        let followers = db.users.findAll({
             where: [{
-                id_seguido: idBuscado
+                id_users: idBuscado
             }]
         })
 
-        let resUsuario = db.Usuario.findByPk(idBuscado, {
+        let resUsuario = db.users.findByPk(idBuscado, {
             include: [{
                 all: true,
                 nested: true
@@ -36,12 +36,12 @@ const postController = {
             })
     },
     create: (req, res) => {
-        if (req.session.user != undefined) {
-            return res.render('agregarPost')
-        } else {
-            res.redirect('/usuario/login')
-        }
+        
+            return res.render('addPost')
+       
     },
+
+    
     add: (req, res) => {
         if (req.session.user != undefined) {
             console.log(req.file);
@@ -56,13 +56,15 @@ const postController = {
             return res.send('Log in before post!')
         }
     },
+    
+
     store: (req, res) => {
         let postAGuardar = req.body;
         let post = {
             imagen: postAGuardar.foto,
             texto: postAGuardar.texto_descriptivo
         };
-        Posteo.create(post)
+        posteo.create(post)
             .then((results) => {
                 return res.redirect('/')
             })
@@ -90,7 +92,7 @@ const postController = {
 
         let info = req.body
 
-        Posteo.update({
+        posteo.update({
                 imagen: info.foto,
                 texto: info.texto_descriptivo,
                 id_users: info.id_users,
@@ -104,16 +106,18 @@ const postController = {
                 }
             })
             .then((results) => {
-                return res.redirect('/');
+                //return res.redirect('/');
+                return res.render("editPost")
             })
             .catch((error) => {
-                res.redirect('/')
+                //res.redirect('/')
+                console.log(error);
             })
         // res.send(req.body)
     },
     postDetails: (req, res) => {
 
-        Posteo.findAll({
+        posteo.findAll({
                 include: [{
                         all: true,
                         nested: true
@@ -128,9 +132,12 @@ const postController = {
             .then((results) => {
                 res.render('postDetails', {
                     posts: results,
-                    // users : db.usersList
+                    
                 });
 
+            })
+            .catch((err) => {
+                console.log(err);
             })
 
     },
@@ -150,7 +157,7 @@ const postController = {
     },
     destroy: (req, res) => {
         let id = req.body.id
-        Posteo.destroy({
+        posteo.destroy({
                 where: [{
                     id: id
                 }]

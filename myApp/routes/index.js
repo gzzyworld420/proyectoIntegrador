@@ -12,7 +12,7 @@ router.get('/search', indexController.search);
 router.get('/search/user', indexController.searchUser);
 
 
-router.get('/searchResults', indexController.searchResults);
+//router.get('/searchResults', indexController.searchResults);
 
 // export
 module.exports = router;

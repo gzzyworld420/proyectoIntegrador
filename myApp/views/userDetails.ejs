@@ -11,23 +11,29 @@
     <main>
         <div class="user-detail container">
             <section class="top main-content">
-               
+
                 <div class="info-usuario">
-                    <p><%= user.username %> </p> 
+               <% for( let i = 0; i < 1; i++ ) { %>
+                <p><strong><%= posts[i].usuarios %></strong> </p> 
+                <% } %>
+                
+                   
                     <a class="follow" href="">Follow</a>
                     <ul class="meta">
-                        <li> <%= user.posts%> posts</li>
-                        <li><%= user.followers%> followers</li>
-                        <li><%= user.following%> following</li>
+                        <li> 3 posts</li>
+                        <li> 150followers</li>
+                        <li> 400 following</li>
                     </ul>
                 </div>
+             
+
             </section>
             
             <section class="bottom">               
-                <% for( let i = 0; i < 3; i++ ) { %>
+                <% for( let i = 0; i < posts.length; i++ ) { %>
                     <article class="post">
                         <a href="/posts/postDetails/0">
-                            <img src="<%= posts[i].imagen %> " alt="">
+                            <img src="<%= posts[i].foto %> " alt="">
                         </a>
                     </article>
                 <% } %>
