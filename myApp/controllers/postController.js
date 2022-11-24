@@ -9,6 +9,7 @@ const users = db.User;
 // methods
 
 const postController = {
+<<<<<<< HEAD
     searchbyId: (req, res) => {
         let idBuscado = req.params.id;
 
@@ -35,6 +36,8 @@ const postController = {
                 return res.send(error)
             })
     },
+=======
+>>>>>>> 0dbb3d206e947e17faa60a5756ffe56a3e0e741e
     create: (req, res) => {
         
             return res.render('addPost')
