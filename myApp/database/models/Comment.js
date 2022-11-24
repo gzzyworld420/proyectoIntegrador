@@ -35,7 +35,7 @@ module.exports = function (sequelize, dataTypes) {
         tableName: "comments",
         timestamps: false,
         underscored: true,
-    }
+    };
 
 
     let Comment = sequelize.define(alias, cols, config);
@@ -47,6 +47,7 @@ module.exports = function (sequelize, dataTypes) {
                 as: 'users',
                 foreignKey: 'id_users'
             }),
+            
             Comment.belongsTo(models.Posteo, {
                 as: 'posts',
                 foreignKey: 'id_posts'

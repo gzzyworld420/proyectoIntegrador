@@ -1,5 +1,5 @@
 // siguiendo el modelo MVC, una vez ya creado el modelo, el modelo de base de datos se comunica con el controlador
-const db = require("../data/data");
+//const db = require("../data/data");
 const bcrypt = require('bcryptjs');
 const dB = require("../database/models");
 const User = dB.User;
@@ -142,11 +142,11 @@ const userController = {
 
     store: (req, res) => {
         let userStorage = req.body;
-        // let profilePicture = req.file.fieldname;
+         let profilePicture = req.file.fieldname;
 
-        //let errors = {};
+        let errors = {};
         // HASHING
-        /*
+        
         let passEncriptada = bcrypt.hashSync(userStorage.password, 10);  
         let user = {
 
@@ -158,7 +158,7 @@ const userController = {
            // img : profilePicture //Multer
 
         } 
-        */
+        
         User.create(userStorage)
             .then((results) => {
                 return res.redirect('/users/login');

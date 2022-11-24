@@ -26,13 +26,8 @@ module.exports =  function(sequelize, dataTypes) {
        user_id: {
            type:dataTypes.INTEGER
        },
-       comment: {
-        type:dataTypes.STRING
-        },
-        usuarios: {
-            type: dataTypes.STRING
-        }
-        
+       
+   
     };
 
     let config = {

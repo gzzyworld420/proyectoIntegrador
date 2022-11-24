@@ -1,6 +1,6 @@
 // require
 let db = require('../database/models')
-const db = require('../data/data');
+//const db = require('../data/data');
 const session = require('express-session');
 const posteos = dB.Posteo;
 let comentario = db.comentario;

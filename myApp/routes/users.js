@@ -17,7 +17,7 @@ let storage = multer.diskStorage({
     }
 });
 
-//let upload = multer( { storage : storage } );
+let upload = multer( { storage : storage } );
 
 
 // metodo
@@ -28,7 +28,7 @@ router.get('/login', userController.login);
 router.post('/login', userController.loginPost);
 
 router.get('/register', userController.create);
-router.post('/register', userController.store);
+router.post('/register', upload.single('profile_picture') ,userController.store);
 
 router.get('/userDetails', userController.userDetails);
 
