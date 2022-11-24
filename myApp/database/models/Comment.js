@@ -7,18 +7,18 @@ module.exports = function (sequelize, dataTypes) {
         id: {
             auto_increment: true,
             primaryKey: true,
-            type: dataTypes.INTEGER(10)
+            type: dataTypes.INTEGER
         },
         id_posts: {
-            type: dataTypes.INTEGER(10)
+            type: dataTypes.INTEGER
         },
 
         id_users: {
-            type: dataTypes.INTEGER(10)
+            type: dataTypes.INTEGER
         },
 
         texto_descriptivo: {
-            type: dataTypes.STRING(500)
+            type: dataTypes.STRING
         },
         created_at: {
             type: dataTypes.DATE
