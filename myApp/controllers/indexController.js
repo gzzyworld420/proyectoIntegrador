@@ -1,5 +1,4 @@
 // require
-<<<<<<< HEAD
 let dB = require('../database/models')
 //const db = require('../data/data');
 
@@ -7,15 +6,6 @@ const posteos = dB.Posteo;
 let comentario = dB.comentario;
 const users = dB.User;
 let op = dB.sequelize.Op;
-=======
-let db = require('../database/models')
-// const db = require('../data/data');
-
-const posteos = db.Posteo;
-let comentario = db.comentario;
-const users = db.User;
-let op = db.sequelize.Op;
->>>>>>> 0dbb3d206e947e17faa60a5756ffe56a3e0e741e
 
 // prueba cambios en el indexController
 // methods
@@ -33,7 +23,6 @@ const indexController = {
             ]
 
         };
-<<<<<<< HEAD
         posteos.findAll(criterios, 
             /*
             {
@@ -51,14 +40,6 @@ const indexController = {
         })
         .catch((err) => {
             console.log(err);
-=======
-        posteos.findAll(criterios)
-        .then((results)=> {
-            res.render('index', {posteos: results})
-        }) 
-        .catch((error)=>{
-            console.log(error);
->>>>>>> 0dbb3d206e947e17faa60a5756ffe56a3e0e741e
         })
     },
     searchUsuarios: (req, res) => {
@@ -81,19 +62,11 @@ const indexController = {
                 ['created_at', 'DESC']
             ]
         }
-<<<<<<< HEAD
         users.findAll(criterios)
             .then(function (resultado) {
                 return res.render('resUserSearch', {
                     post: resultado,
                     comments: resultado
-=======
-        usuario.findAll(criterios)
-            .then( (resultado) => {
-                return res.render('resUserSearch', {
-                    post: resultado,
-                    comments: resultado,
->>>>>>> 0dbb3d206e947e17faa60a5756ffe56a3e0e741e
                 })
             })
             .catch((error)=>{

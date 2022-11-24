@@ -39,6 +39,9 @@ router.post('/delete', postController.destroy)
 // ruta parametrizada
 router.get('/postdetails/:id', postController.postDetails);
 
+router.get('/editPost', postController.editPost)
+router.post('/editPost', postController.storeEdit)
+
 
 //export
 module.exports = router;

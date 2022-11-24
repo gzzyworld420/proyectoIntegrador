@@ -24,6 +24,7 @@ let upload = multer( { storage : storage } );
 router.get('/myprofile', userController.myProfile);
 //router.post('/myprofile', userController.editMyProfile)
 
+
 router.get('/login', userController.login);
 //router.post('/login', userController.loginPost);
 
@@ -34,7 +35,7 @@ router.get('/userDetails', userController.userDetails);
 
 router.get('/detalle/id/:id', userController.searchbyId)
 
-//router.get('/register', userController.register)
+
 
 router.get('/logout', userController.logout)
 

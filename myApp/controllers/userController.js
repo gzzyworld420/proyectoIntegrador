@@ -35,11 +35,7 @@ const userController = {
             }).catch(function (error) {
                 return res.send(error)
             })
-    },
-    register: (req, res) => {
-        
-
-    },
+    }, 
     userDetails: (req, res) => {
 
             let criterios = {
@@ -167,9 +163,7 @@ const userController = {
     },
 
    
-    // haciendola una ruta parametrizada que significa que va a recibir un parametro 
     editProfile: (req, res) => {
-        // para desde el controlador enviarle info a las vistas, se usa el metodo render y se le pasa como parametro un objeto con la info que se quiere enviar
         res.render('editProfile', {
             user: db.usersList,
             indice: req.params.id

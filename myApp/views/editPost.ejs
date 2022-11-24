@@ -14,18 +14,18 @@
            
             <h1>Edit post</h1>
             <!--form-->
-            <form action="/posts/update" method="POST">
+            <form action="/posts/editPost" method="POST">
                 <div>
                     <label for="post"></label>
-                    <input type="number" name="id" hidden id="texto_descriptivo" placeholder="Post Description" value=" <%= posts.id %>  " >
+                    <input type="number" name="id" hidden id="texto_descriptivo" placeholder="Post Description"  >
                 </div>
                 <div>
                     <label for="image">Select Image</label>
-                    <input type="file" name="image" id="foto" placeholder="Image" value="<%= posts.foto %> ">
+                    <input type="file" name="image" id="foto" placeholder="Image" >
                 </div>
                 <div>
                     <label for="post">Post Description</label>
-                    <input type="text" name="post" id="texto_descriptivo" placeholder="Post Description" value=" <%= posts.texto_descriptivo %>  " >
+                    <input type="text" name="post" id="texto_descriptivo" placeholder="Post Description"  >
                 </div>
                 <div>
                 

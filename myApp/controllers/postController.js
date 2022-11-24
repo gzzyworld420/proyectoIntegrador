@@ -9,7 +9,6 @@ const users = db.User;
 // methods
 
 const postController = {
-<<<<<<< HEAD
     searchbyId: (req, res) => {
         let idBuscado = req.params.id;
 
@@ -36,8 +35,6 @@ const postController = {
                 return res.send(error)
             })
     },
-=======
->>>>>>> 0dbb3d206e947e17faa60a5756ffe56a3e0e741e
     create: (req, res) => {
         
             return res.render('addPost')
@@ -59,7 +56,6 @@ const postController = {
             return res.send('Log in before post!')
         }
     },
-    
 
     store: (req, res) => {
         let postAGuardar = req.body;
@@ -80,7 +76,7 @@ const postController = {
         posteo.findByPk(req.query.id_posteo)
             .then(function (resultado) {
                 if (req.session.user != undefined && req.session.user.id == resultado.id_usuario) {
-                    return res.render('editarPosteo', {
+                    return res.render('editPost', {
                         posteo: resultado
                     })
                 } else {
@@ -201,7 +197,23 @@ const postController = {
             return res.redirect('/usuario/login')
         }
 
+    },
+    
+    editPost: (req, res) => {
+        posteo.findAll()
+        .then((results) => {
+            return res.render('editPost', {posts :results});
+        })
+        
+        .catch((err) => {
+            res.redirect('/')
+        })
+       
+    },
+    storeEdit:(req, res) => {
+        res.redirect('/');
     }
+    
 }
 // exports
 module.exports = postController;
