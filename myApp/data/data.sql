@@ -1,5 +1,6 @@
 CREATE SCHEMA `red social` ;
-CREATE TABLE `red_social`.`posts` (
+
+CREATE TABLE `red_social`.`posteos` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `foto` VARCHAR(500) NOT NULL,
   `texto_descripcion` VARCHAR(500) NOT NULL,
