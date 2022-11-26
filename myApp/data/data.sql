@@ -1,26 +1,31 @@
-CREATE SCHEMA `red social` ;
+CREATE SCHEMA `red_social` ;
 
 CREATE TABLE `red_social`.`posteos` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(500) NOT NULL,
-  `texto_descripcion` VARCHAR(500) NOT NULL,
+  `foto` VARCHAR(500) NULL,
+  `texto_descriptivo` VARCHAR(500) NULL,
   `id_users` INT UNSIGNED NULL DEFAULT NULL,
-  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `comment` VARCHAR(500)  NULL,  
+  `usuarios` VARCHAR(500)  NULL,
+  `user_id` INT NULL,
   PRIMARY KEY (`id`));
 
-CREATE TABLE `red_social`.`users` (
+ CREATE TABLE `red_social`.`users` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(500) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
-  `contrasenia` VARCHAR(45) NULL DEFAULT '4444',
-  `foto_perfil` VARCHAR(100) BINARY NOT NULL,
+  `contrasenia` VARCHAR(45) NULL ,
+  `profile_picture` VARCHAR(100) BINARY NOT NULL,
   `dni` INT NOT NULL,
-  `fecha` DATE NOT NULL,
+  `fecha` DATE NULL,
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `posteos`VARCHAR(500) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC));
+  
   
 CREATE TABLE `red_social`.`comments` (
   `id` INT(10) UNSIGNED NOT NULL,
@@ -30,87 +35,81 @@ CREATE TABLE `red_social`.`comments` (
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));
-ALTER TABLE `red_social`.`posts` 
-CHANGE COLUMN `texto_descripcion` `texto_descriptivo` VARCHAR(500) NOT NULL ;
-ALTER TABLE `red_social`.`posts` 
-ADD COLUMN `user_id` INT NULL DEFAULT NULL AFTER `updated_at`;
-ALTER TABLE `red_social`.`users` 
-CHANGE COLUMN `contrasenia` `contrasenia` VARCHAR(45) NOT NULL ;
+  
+  
+  
+  
 
-ALTER TABLE `red_social`.`posts` 
-CHANGE COLUMN `foto` `foto` VARCHAR(500) NULL DEFAULT NULL ;
-ALTER TABLE `red_social`.`posts` 
-CHANGE COLUMN `texto_descriptivo` `texto_descriptivo` VARCHAR(500) NULL DEFAULT NULL ;
-UPDATE `red_social`.`posts` SET `foto` = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nike.com%2Fca%2Ft%2Fblazer-mid-77-next-nature-shoes-ZnZJvn&psig=AOvVaw129L1uIzWsyjmuFPmekDje&ust=1668992773394000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOC3gt3Iu_sCFQAAAAAdAAAAABAE', `texto_descriptivo` = 'Nike Blzers' WHERE (`id` = '2');
-UPDATE `red_social`.`posts` SET `id_users` = '1' WHERE (`id` = '2');
-UPDATE `red_social`.`posts` SET `foto` = 'https://static.nike.com/a/images/t_default/a751495d-1cb9-4976-ab4f-9a2189464e8f/blazer-mid-77-next-nature-shoes-ZnZJvn.png' WHERE (`id` = '2');
-UPDATE `red_social`.`posts` SET `foto` = 'https://static.nike.com/a/images/t_default/v5qlucvwx3lme7x3slhn/calzado-converse-chuck-taylor-all-star-de-perfil-alto-xX439O.png', `texto_descriptivo` = 'Converse', `id_users` = '2' WHERE (`id` = '3');
-UPDATE `red_social`.`posts` SET `foto` = 'http://cdn.shopify.com/s/files/1/2999/5106/products/True-to-Sole-Air-Jordan-1-Retro-High-University-Blue-01_3df76d08-2391-4241-9fad-59581aff8423.png?v=1615250938', `texto_descriptivo` = 'Jordan 1s', `id_users` = '1' WHERE (`id` = '4');
-UPDATE `red_social`.`posts` SET `foto` = 'https://content.rezetstore.dk/sites/default/files/PIM-images/adidas/2298183/adidas-stan-smith-ftwwht-green-owhite-2298183-v1-763486.png', `texto_descriptivo` = 'Stan Smith', `id_users` = '3' WHERE (`id` = '5');
-UPDATE `red_social`.`posts` SET `foto` = 'https://www.thenextsole.com/storage/images/194166-03.png', `texto_descriptivo` = 'Pumas', `id_users` = '3' WHERE (`id` = '6');
-UPDATE `red_social`.`posts` SET `texto_descriptivo` = 'Addias Boost', `id_users` = '2' WHERE (`id` = '7');
-UPDATE `red_social`.`posts` SET `texto_descriptivo` = 'Dr Mertens', `id_users` = '1' WHERE (`id` = '8');
-UPDATE `red_social`.`posts` SET `foto` = 'https://image.goat.com/transform/v1/attachments/product_template_pictures/images/012/939/803/original/23568001.png.png?action=crop&width=750' WHERE (`id` = '8');
-DELETE FROM `red_social`.`posts` WHERE (`id` = '9');
-UPDATE `red_social`.`posts` SET `foto` = 'https://content.rezetstore.dk/sites/default/files/styles/product_display_teaser_mobile/public/PIM-images/adidas/1387357/adidas-ultra-boost-solar-yellow-solar-y-1387357-v1-744123.png' WHERE (`id` = '7');
-ALTER TABLE `red_social`.`users` 
-CHANGE COLUMN `fecha` `fecha` DATE NULL ;
-INSERT INTO `red_social`.`users` (`id`, `email`, `username`, `contrasenia`, `foto_perfil`, `dni`, `created_at`, `updated_at`) VALUES ('1', 'joao@udesa.edu', 'Joao Pedro', '4444', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU', '43988584', '2022-11-19 22:16:43', '2022-11-19 22:27:59');
-ALTER TABLE `red_social`.`users` 
-CHANGE COLUMN `username` `user` VARCHAR(45) NOT NULL ;
-ALTER TABLE `red_social`.`users` 
-CHANGE COLUMN `email` `email` VARCHAR(500) NOT NULL DEFAULT 'segundo.benito@gmail.com' ;
-ALTER TABLE `red_social`.`users` 
-CHANGE COLUMN `email` `email` VARCHAR(500) NULL DEFAULT NULL ,
-CHANGE COLUMN `username` `username` VARCHAR(45) NULL DEFAULT NULL ,
-CHANGE COLUMN `password` `password` VARCHAR(45) NULL DEFAULT NULL ,
-CHANGE COLUMN `profile_picture` `profile_picture` VARCHAR(100) NULL DEFAULT NULL ,
-CHANGE COLUMN `dni` `dni` INT(11) NULL DEFAULT NULL ;
+
+
+UPDATE `red_social`.`posteos` SET `foto` = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nike.com%2Fca%2Ft%2Fblazer-mid-77-next-nature-shoes-ZnZJvn&psig=AOvVaw129L1uIzWsyjmuFPmekDje&ust=1668992773394000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOC3gt3Iu_sCFQAAAAAdAAAAABAE', `texto_descriptivo` = 'Nike Blzers' WHERE (`id` = '2');
+UPDATE `red_social`.`posteos` SET `id_users` = '1' WHERE (`id` = '2');
+UPDATE `red_social`.`posteos` SET `foto` = 'https://static.nike.com/a/images/t_default/a751495d-1cb9-4976-ab4f-9a2189464e8f/blazer-mid-77-next-nature-shoes-ZnZJvn.png' WHERE (`id` = '2');
+UPDATE `red_social`.`posteos` SET `foto` = 'https://static.nike.com/a/images/t_default/v5qlucvwx3lme7x3slhn/calzado-converse-chuck-taylor-all-star-de-perfil-alto-xX439O.png', `texto_descriptivo` = 'Converse', `id_users` = '2' WHERE (`id` = '3');
+UPDATE `red_social`.`posteos` SET `foto` = 'http://cdn.shopify.com/s/files/1/2999/5106/products/True-to-Sole-Air-Jordan-1-Retro-High-University-Blue-01_3df76d08-2391-4241-9fad-59581aff8423.png?v=1615250938', `texto_descriptivo` = 'Jordan 1s', `id_users` = '1' WHERE (`id` = '4');
+UPDATE `red_social`.`posteos` SET `foto` = 'https://content.rezetstore.dk/sites/default/files/PIM-images/adidas/2298183/adidas-stan-smith-ftwwht-green-owhite-2298183-v1-763486.png', `texto_descriptivo` = 'Stan Smith', `id_users` = '3' WHERE (`id` = '5');
+UPDATE `red_social`.`posteos` SET `foto` = 'https://www.thenextsole.com/storage/images/194166-03.png', `texto_descriptivo` = 'Pumas', `id_users` = '3' WHERE (`id` = '6');
+UPDATE `red_social`.`posteos` SET `texto_descriptivo` = 'Addias Boost', `id_users` = '2' WHERE (`id` = '7');
+UPDATE `red_social`.`posteos` SET `texto_descriptivo` = 'Dr Mertens', `id_users` = '1' WHERE (`id` = '8');
+UPDATE `red_social`.`posteos` SET `foto` = 'https://image.goat.com/transform/v1/attachments/product_template_pictures/images/012/939/803/original/23568001.png.png?action=crop&width=750' WHERE (`id` = '8');
+DELETE FROM `red_social`.`posteos` WHERE (`id` = '9');
+UPDATE `red_social`.`posteos` SET `foto` = 'https://content.rezetstore.dk/sites/default/files/styles/product_display_teaser_mobile/public/PIM-images/adidas/1387357/adidas-ultra-boost-solar-yellow-solar-y-1387357-v1-744123.png' WHERE (`id` = '7');
+
+
+INSERT INTO `red_social`.`users` (`id`, `email`, `username`, `contrasenia`, `profile_picture`, `dni`, `created_at`, `updated_at`) VALUES ('1', 'joao@udesa.edu', 'Joao Pedro', '4444', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU', '43988584', '2022-11-19 22:16:43', '2022-11-19 22:27:59');
+
+
+
+
+
+
+
 DELETE FROM `red_social`.`users` WHERE (`id` = '1');
-UPDATE `red_social`.`users` SET `email` = 'joao@udesa.edu', `username` = 'JoaoPedro', `password` = '4444', `profile_picture` = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU', `dni` = '43988584' WHERE (`id` = '2');
+UPDATE `red_social`.`users` SET `email` = 'joao@udesa.edu', `username` = 'JoaoPedro', `contrasenia` = '4444', `profile_picture` = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU', `dni` = '43988584' WHERE (`id` = '2');
 UPDATE `red_social`.`users` SET `profile_picture` = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' WHERE (`id` = '2');
-UPDATE `red_social`.`users` SET `password` = '727272', `profile_picture` = 'https://cdn-icons-png.flaticon.com/512/3135/3135823.png', `dni` = '21322343' WHERE (`id` = '3');
+UPDATE `red_social`.`users` SET `contrasenia` = '727272', `profile_picture` = 'https://cdn-icons-png.flaticon.com/512/3135/3135823.png', `dni` = '21322343' WHERE (`id` = '3');
 UPDATE `red_social`.`users` SET `email` = 'segundo@yahoo' WHERE (`id` = '3');
 INSERT INTO `red_social`.`comments` (`id`, `id_posts`, `id_users`, `texto_descriptivo`, `created_at`, `updated_at`) VALUES ('1', '1', '1', 'Muy Lindas', '2022-11-20 00:17:03', '2022-11-20 00:25:11');
 
-ALTER TABLE `red_social`.`posts` 
-ADD COLUMN `comments` VARCHAR(500) NULL DEFAULT NULL AFTER `user_id`;
-UPDATE `red_social`.`posts` SET `comments` = 'Very Nice' WHERE (`id` = '2');
-UPDATE `red_social`.`posts` SET `comments` = 'Great colors' WHERE (`id` = '3');
-UPDATE `red_social`.`posts` SET `comments` = 'incredible' WHERE (`id` = '4');
-UPDATE `red_social`.`posts` SET `comments` = 'I dont not like them' WHERE (`id` = '5');
-ALTER TABLE `red_social`.`posts` 
-CHANGE COLUMN `comments` `comment` VARCHAR(500) NULL DEFAULT NULL ;
-UPDATE `red_social`.`posts` SET `usuarios` = 'Segu_benito' WHERE (`id` = '2');
-UPDATE `red_social`.`posts` SET `usuarios` = 'Nacho_suarez' WHERE (`id` = '3');
-UPDATE `red_social`.`posts` SET `usuarios` = 'Pedro' WHERE (`id` = '4');
-UPDATE `red_social`.`posts` SET `usuarios` = 'Ernesto' WHERE (`id` = '5');
-UPDATE `red_social`.`posts` SET `usuarios` = 'Cecilia' WHERE (`id` = '6');
-UPDATE `red_social`.`posts` SET `usuarios` = 'Maria' WHERE (`id` = '7');
-UPDATE `red_social`.`posts` SET `usuarios` = 'Martu' WHERE (`id` = '8');
-UPDATE `red_social`.`posts` SET `comment` = 'They look better in Pink' WHERE (`id` = '6');
-UPDATE `red_social`.`posts` SET `comment` = 'I think they look old' WHERE (`id` = '7');
-UPDATE `red_social`.`posts` SET `comment` = 'Vintage' WHERE (`id` = '8');
-INSERT INTO `red_social`.`posts` (`comment`) VALUES ('');
-DELETE FROM `red_social`.`posts` WHERE (`id` = '9');
-ALTER TABLE `red_social`.`users` 
-CHANGE COLUMN `profile_picture` `profile_picture` VARCHAR(500) NULL DEFAULT NULL ;
+
+
+UPDATE `red_social`.`posteos` SET `comment` = 'Very Nice' WHERE (`id` = '2');
+UPDATE `red_social`.`posteos` SET `comment` = 'Great colors' WHERE (`id` = '3');
+UPDATE `red_social`.`posteos` SET `comment` = 'incredible' WHERE (`id` = '4');
+UPDATE `red_social`.`posteos` SET `comment` = 'I dont not like them' WHERE (`id` = '5');
+
+
+UPDATE `red_social`.`posteos` SET `usuarios` = 'Segu_benito' WHERE (`id` = '2');
+UPDATE `red_social`.`posteos` SET `usuarios` = 'Nacho_suarez' WHERE (`id` = '3');
+UPDATE `red_social`.`posteos` SET `usuarios` = 'Pedro' WHERE (`id` = '4');
+UPDATE `red_social`.`posteos` SET `usuarios` = 'Ernesto' WHERE (`id` = '5');
+UPDATE `red_social`.`posteos` SET `usuarios` = 'Cecilia' WHERE (`id` = '6');
+UPDATE `red_social`.`posteos` SET `usuarios` = 'Maria' WHERE (`id` = '7');
+UPDATE `red_social`.`posteos` SET `usuarios` = 'Martu' WHERE (`id` = '8');
+UPDATE `red_social`.`posteos` SET `comment` = 'They look better in Pink' WHERE (`id` = '6');
+UPDATE `red_social`.`posteos` SET `comment` = 'I think they look old' WHERE (`id` = '7');
+UPDATE `red_social`.`posteos` SET `comment` = 'Vintage' WHERE (`id` = '8');
+INSERT INTO `red_social`.`posteos` (`comment`) VALUES ('');
+DELETE FROM `red_social`.`posteos` WHERE (`id` = '9');
+
+
+
 DELETE FROM `red_social`.`users` WHERE (`id` = '11');
 DELETE FROM `red_social`.`users` WHERE (`id` = '8');
 DELETE FROM `red_social`.`users` WHERE (`id` = '6');
 DELETE FROM `red_social`.`users` WHERE (`id` = '7');
 DELETE FROM `red_social`.`users` WHERE (`id` = '9');
 DELETE FROM `red_social`.`users` WHERE (`id` = '10');
-UPDATE `red_social`.`users` SET `email` = 'ignacio@gmail.com', `username` = 'IAracena23', `password` = '1223', `profile_picture` = 'https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg', `dni` = '72884936' WHERE (`id` = '4');
-UPDATE `red_social`.`users` SET `email` = 'martin@gmail.com', `username` = 'martin44', `password` = '7123', `profile_picture` = 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', `dni` = '76223465' WHERE (`id` = '5');
-ALTER TABLE `red_social`.`users` 
-ADD COLUMN `posteos` VARCHAR(500) NULL DEFAULT NULL AFTER `updated_at`;
+UPDATE `red_social`.`users` SET `email` = 'ignacio@gmail.com', `username` = 'IAracena23', `contrasenia` = '1223', `profile_picture` = 'https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg', `dni` = '72884936' WHERE (`id` = '4');
+UPDATE `red_social`.`users` SET `email` = 'martin@gmail.com', `username` = 'martin44', `contrasenia` = '7123', `profile_picture` = 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', `dni` = '76223465' WHERE (`id` = '5');
+
+
 UPDATE `red_social`.`users` SET `posteos` = 'https://images.keepersport.net/eyJidWNrZXQiOiJrZWVwZXJzcG9ydC1wcm9kdWN0LWltYWdlcy11cy1lYXN0LTEiLCJrZXkiOiJyZWVib2tcLzEwMTk1OTI2X0dYNzU2Ml8wMDBcL3JlZWJvay1jbHViLWMtODUtdmVnYW4td2Vpc3MtcGluay1neDc1NjItbGlmZXN0eWxlX3JpZ2h0X291dC5wbmciLCJlZGl0cyI6W119' WHERE (`id` = '2');
 UPDATE `red_social`.`users` SET `posteos` = 'https://static.nike.com/a/images/t_default/723aae01-587d-4089-9865-4edb9b318d62/custom-nike-dunk-unlocked-by-you.png' WHERE (`id` = '3');
 UPDATE `red_social`.`users` SET `posteos` = 'https://cdn.shopify.com/s/files/1/2999/5106/products/True-to-Sole-Air-Jordan-1-Mid-White-Black-Royal-554724-140-001_600x.png?v=1635347409' WHERE (`id` = '4');
 UPDATE `red_social`.`users` SET `posteos` = 'https://www.elmstreet.pk/wp-content/uploads/2020/02/Untitled_design__17_-removebg-preview.png' WHERE (`id` = '5');
-DELETE FROM `red_social`.`posts` WHERE (`id` = '10');
-DELETE FROM `red_social`.`posts` WHERE (`id` = '11');
+DELETE FROM `red_social`.`posteos` WHERE (`id` = '10');
+DELETE FROM `red_social`.`posteos` WHERE (`id` = '11');
 DELETE FROM `red_social`.`users` WHERE (`id` = '12');
 DELETE FROM `red_social`.`users` WHERE (`id` = '13');
 DELETE FROM `red_social`.`users` WHERE (`id` = '14');
@@ -224,14 +223,17 @@ DELETE FROM `red_social`.`users` WHERE (`id` = '121');
 DELETE FROM `red_social`.`users` WHERE (`id` = '122');
 DELETE FROM `red_social`.`users` WHERE (`id` = '126');
 DELETE FROM `red_social`.`users` WHERE (`id` = '124');
-DELETE FROM `red_social`.`posts` WHERE (`id` = '12');
-DELETE FROM `red_social`.`posts` WHERE (`id` = '13');
+DELETE FROM `red_social`.`posteos` WHERE (`id` = '12');
+DELETE FROM `red_social`.`posteos` WHERE (`id` = '13');
 DELETE FROM `red_social`.`users` WHERE (`id` = '128');
 DELETE FROM `red_social`.`users` WHERE (`id` = '129');
 DELETE FROM `red_social`.`users` WHERE (`id` = '130');
 DELETE FROM `red_social`.`users` WHERE (`id` = '131');
 DELETE FROM `red_social`.`users` WHERE (`id` = '132');
 DELETE FROM `red_social`.`users` WHERE (`id` = '133');
-ALTER TABLE `red_social`.`posts` 
-RENAME TO  `red_social`.`posteos` ;
 
+UPDATE `red_social`.`posteos` SET `foto` = 'https://psi-oracle-wcs-pirelli-design-prd.s3-eu-west-1.amazonaws.com/new/assets/img/2020Version/puma/03.prodotto/2/prodotto_dsk_02_green.png', `texto_descriptivo` = 'Pumas', `id_users` = '2', `comment` = 'very Nice', `usuarios` = 'SegundoBen' WHERE (`id` = '1');
+UPDATE `red_social`.`posteos` SET `foto` = 'https://static.nike.com/a/images/t_default/8e158065-9466-46b0-9f94-32d15c271d0c/blazer-mid-pro-club-mens-shoes-Vgslvc.png', `texto_descriptivo` = 'Blazers', `id_users` = '3', `comment` = 'Great Colors!', `usuarios` = 'IgnacioAra' WHERE (`id` = '2');
+UPDATE `red_social`.`posteos` SET `foto` = 'https://image.goat.com/transform/v1/attachments/product_template_pictures/images/012/939/803/original/23568001.png.png?action=crop&width=750', `texto_descriptivo` = 'Dr Martens', `id_users` = '2', `comment` = 'I do not like them', `usuarios` = 'Juanfer1' WHERE (`id` = '3');
+
+  DELETE FROM `red_social`.`posteos` WHERE (`id` = '4');

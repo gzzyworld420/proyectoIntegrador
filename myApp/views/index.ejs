@@ -37,7 +37,7 @@
                     
                     <div class="post-comentarios">
                         <h4>
-                            <a href="/users/userDetails"><%= posts[i].User  %>:
+                            <a href="/users/userDetails"><%= posts[i].usuarios %>:
                         </h4>
                         <h4 class="post-description"><%= posts[i].texto_descriptivo %> </h4>
 
@@ -45,18 +45,13 @@
                     <ul>
                                     
                             <li>
-                                <a href="/users/userDetails/<%= posts[i].texto_descriptivo %>">
-                                <span><%= posts[i].comments %> </span>
+                                <a href="/users/userDetails">
+                                <span><%= posts[i].comment %> </span>
                             </a>
                             
                             </li>
                      
                             
-                            <li>
-                                <a href="/users/userDetails/<%= posts[i].id_users %> ">
-                                <span><%= posts[i].comments %></span>
-                            </a>
-                            </li>
                             <a href="/posts/postDetails/<%= posts[i].id%>">Ver más...</a>
                         </ul>
                     </div>

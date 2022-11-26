@@ -31,6 +31,9 @@ module.exports =  function(sequelize, dataTypes) {
         },
         usuarios: {
             type: dataTypes.STRING
+        },
+        user_id: {
+            type: dataTypes.INTEGER
         }
         
     };

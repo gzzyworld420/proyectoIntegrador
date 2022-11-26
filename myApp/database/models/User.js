@@ -15,7 +15,7 @@ module.exports = function (sequelize, dataTypes) {
         username: {
             type: dataTypes.STRING(45),
         },
-        password: {
+        contrasenia: {
             type: dataTypes.STRING(45)
         },
         profile_picture: {
@@ -33,6 +33,9 @@ module.exports = function (sequelize, dataTypes) {
         updated_at: {
             type: dataTypes.DATE
         },
+        posteos: {
+            type: dataTypes.STRING
+        }
        
 
     };
@@ -48,7 +51,7 @@ module.exports = function (sequelize, dataTypes) {
     
     User.associate = function (models) {
         User.hasMany(models.Posteo, {
-                as: "posteos",
+                as: "posts",
                 foriegnKey: "id_users"
             })
 
