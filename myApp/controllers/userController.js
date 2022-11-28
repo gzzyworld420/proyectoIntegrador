@@ -112,7 +112,7 @@ const userController = {
             user.create({
                 
                 email: req.body.email,
-                usuario: req.body.username,
+                username: req.body.username,
                 //contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
                 //foto: req.file.filename,
 
